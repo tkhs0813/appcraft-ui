@@ -19,6 +19,8 @@ Agent UI is **not** a shadcn-style copy/paste kit. It is a package-based UI SDK.
 - Do not introduce multi-theme support yet.
 - Do not add dark mode yet.
 - Do not copy components into app code as an integration strategy.
+- Do not add external UI/headless component libraries such as bits-ui, Melt UI, Radix, Ark UI, Floating UI, Tailwind, clsx, or CVA unless explicitly requested.
+- Implement UI components and interaction primitives in-house.
 - Use semantic props such as `variant`, `size`, `tone`, `status`, `loading`, `error`, data arrays, and callbacks.
 - Use built-in loading, empty, error, and destructive-action states.
 - Keep public component APIs small and hard to misuse.
