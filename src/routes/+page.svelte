@@ -3,6 +3,22 @@
 	import {
 		Alert,
 		AppShell,
+		AgentStatusIndicator,
+		Avatar,
+		Badge,
+		CheckboxField,
+		CodeBlock,
+		CopyButton,
+		IconButton,
+		KeyboardShortcut,
+		NumberField,
+		ProgressBar,
+		RadioGroupField,
+		Separator,
+		Skeleton,
+		Spinner,
+		TokenMeter,
+		Tooltip,
 		Banner,
 		Button,
 		ChatPanel,
@@ -146,7 +162,7 @@
 		<div class="metric-grid">
 			<MetricCard
 				title="Components"
-				items={[{ id: 'components', title: '57 public exports', status: 'Ready', tone: 'success' }]}
+				items={[{ id: 'components', title: '73 public exports', status: 'Ready', tone: 'success' }]}
 			/>
 			<Alert
 				title="Agent guardrails"
@@ -155,6 +171,60 @@
 				]}
 			/>
 		</div>
+
+		<section class="atom-panel" aria-label="Atom Pack examples">
+			<div class="atom-panel-header">
+				<div>
+					<p class="eyebrow">Atom Pack</p>
+					<h2>Small primitives for AI-safe composition</h2>
+					<p>
+						Atoms cover compact actions, identity, loading, forms, code, shortcuts, and AI
+						usage/status UI.
+					</p>
+				</div>
+				<div class="atom-row">
+					<IconButton label="Run agent" icon="▶" variant="primary" />
+					<CopyButton value="agent-ui" />
+					<Tooltip label="Keyboard shortcut atom"><KeyboardShortcut keys={['⌘', 'K']} /></Tooltip>
+				</div>
+			</div>
+
+			<div class="atom-grid">
+				<div class="atom-card">
+					<Avatar name="Ryo Takahashi" status="online" /><Badge
+						label="Owner"
+						tone="brand"
+					/><AgentStatusIndicator status="running" label="Agent running" />
+				</div>
+				<div class="atom-card">
+					<Spinner label="Loading run" /><ProgressBar
+						value={64}
+						label="Run progress"
+						showValue
+					/><TokenMeter used={1280} limit={4096} />
+				</div>
+				<div class="atom-card">
+					<CheckboxField
+						label="Require approval"
+						description="Gate destructive tool calls."
+						checked
+					/><RadioGroupField
+						label="Mode"
+						value="auto"
+						options={[
+							{ value: 'auto', label: 'Auto' },
+							{ value: 'manual', label: 'Manual' }
+						]}
+					/><NumberField label="Max steps" value={12} min={1} max={50} />
+				</div>
+				<div class="atom-card">
+					<Skeleton lines={2} /><Separator label="Artifact" /><CodeBlock
+						language="ts"
+						code={`import { Button } from 'agent-ui';`}
+					/>
+				</div>
+			</div>
+		</section>
 
 		<PageHeader
 			title="Team members"
@@ -407,9 +477,70 @@
 	.state-grid > :global(*) {
 		flex: 1 1 22rem;
 	}
+
+	.atom-panel {
+		display: grid;
+		gap: 1rem;
+		border: 1px solid var(--aui-border);
+		border-radius: var(--aui-radius-xl);
+		background: var(--aui-surface);
+		box-shadow: var(--aui-shadow-sm);
+		padding: 1.2rem;
+	}
+
+	.atom-panel-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.atom-panel h2,
+	.atom-panel p {
+		margin: 0;
+	}
+
+	.atom-panel h2 {
+		color: var(--aui-text);
+		font-size: 1.15rem;
+		letter-spacing: -0.03em;
+	}
+
+	.atom-panel p:not(.eyebrow) {
+		margin-top: 0.35rem;
+		color: var(--aui-text-muted);
+		font-size: 0.88rem;
+		line-height: 1.55;
+	}
+
+	.atom-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.65rem;
+	}
+
+	.atom-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+	}
+
+	.atom-card {
+		display: grid;
+		align-content: start;
+		gap: 0.85rem;
+		border: 1px solid var(--aui-border);
+		border-radius: var(--aui-radius-lg);
+		background: var(--aui-surface-subtle);
+		padding: 1rem;
+	}
+
 	@media (max-width: 720px) {
 		.form-grid,
-		.metric-grid {
+		.metric-grid,
+		.atom-grid,
+		.atom-panel-header {
 			grid-template-columns: 1fr;
 		}
 	}

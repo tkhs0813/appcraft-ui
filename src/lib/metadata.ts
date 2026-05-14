@@ -675,5 +675,185 @@ export const componentMetadata: ComponentMetadata[] = [
 			'Do not rebuild this pattern from loose divs and buttons.',
 			'Use semantic props, data arrays, and callbacks.'
 		]
+	},
+	{
+		name: 'IconButton',
+		category: 'primitive',
+		description:
+			'Icon-only action button with accessible label, semantic variants, loading, and disabled states.',
+		useCases: ['toolbar actions', 'compact card actions', 'copy and reveal controls'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'Badge',
+		category: 'primitive',
+		description: 'Small semantic label for categories, tags, and compact statuses.',
+		useCases: ['tags', 'labels', 'compact statuses'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'Avatar',
+		category: 'primitive',
+		description: 'User or agent avatar with initials, image, size, and presence status.',
+		useCases: ['user identity', 'agent identity', 'team lists'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'Spinner',
+		category: 'primitive',
+		description: 'Accessible loading spinner for inline and compact loading states.',
+		useCases: ['inline loading', 'button loading', 'panel loading'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'ProgressBar',
+		category: 'primitive',
+		description: 'Accessible determinate progress bar with optional visible percentage.',
+		useCases: ['upload progress', 'workflow progress', 'usage progress'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'Skeleton',
+		category: 'primitive',
+		description: 'Loading placeholder for text, blocks, and avatar-like circular content.',
+		useCases: ['loading placeholders', 'optimistic UI', 'content skeletons'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'Tooltip',
+		category: 'primitive',
+		description: 'Small contextual helper surface for controls and dense UI.',
+		useCases: ['icon explanation', 'keyboard hint', 'dense table help'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'Separator',
+		category: 'primitive',
+		description: 'Semantic visual separator with horizontal, vertical, and labeled modes.',
+		useCases: ['section separation', 'toolbar grouping', 'settings groups'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'CheckboxField',
+		category: 'primitive',
+		description: 'Labeled checkbox field with description, disabled, error, and callback states.',
+		useCases: ['forms', 'preferences', 'feature toggles'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'RadioGroupField',
+		category: 'primitive',
+		description:
+			'Labeled radio option group with descriptions, disabled options, errors, and callback state.',
+		useCases: ['forms', 'settings choices', 'configuration'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'NumberField',
+		category: 'primitive',
+		description:
+			'Labeled numeric input with min, max, step, help text, errors, and callback state.',
+		useCases: ['configuration', 'limits', 'usage settings'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'CodeBlock',
+		category: 'primitive',
+		description: 'Code display block with title, language label, and copy action.',
+		useCases: ['developer tools', 'AI artifacts', 'documentation snippets'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'CopyButton',
+		category: 'primitive',
+		description: 'Accessible copy action for tokens, code, IDs, and generated artifacts.',
+		useCases: ['copy IDs', 'copy code', 'copy generated output'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'KeyboardShortcut',
+		category: 'primitive',
+		description: 'Keyboard shortcut atom for command palettes and productivity UI.',
+		useCases: ['command hints', 'menus', 'toolbars'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'TokenMeter',
+		category: 'primitive',
+		description: 'AI token usage meter with warning and danger thresholds.',
+		useCases: ['LLM usage', 'prompt builders', 'billing previews'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
+	},
+	{
+		name: 'AgentStatusIndicator',
+		category: 'primitive',
+		description:
+			'Compact AI agent status indicator for idle, thinking, running, waiting, failed, and completed states.',
+		useCases: ['agent runs', 'task status', 'AI workspace headers'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
+			'Use semantic props and callbacks instead of styling escape hatches.'
+		]
 	}
 ];

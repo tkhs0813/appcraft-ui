@@ -1,4 +1,20 @@
 export { default as Button } from './components/Button.svelte';
+export { default as IconButton } from './components/IconButton.svelte';
+export { default as Badge } from './components/Badge.svelte';
+export { default as Avatar } from './components/Avatar.svelte';
+export { default as Spinner } from './components/Spinner.svelte';
+export { default as ProgressBar } from './components/ProgressBar.svelte';
+export { default as Skeleton } from './components/Skeleton.svelte';
+export { default as Tooltip } from './components/Tooltip.svelte';
+export { default as Separator } from './components/Separator.svelte';
+export { default as CheckboxField } from './components/CheckboxField.svelte';
+export { default as RadioGroupField } from './components/RadioGroupField.svelte';
+export { default as NumberField } from './components/NumberField.svelte';
+export { default as CodeBlock } from './components/CodeBlock.svelte';
+export { default as CopyButton } from './components/CopyButton.svelte';
+export { default as KeyboardShortcut } from './components/KeyboardShortcut.svelte';
+export { default as TokenMeter } from './components/TokenMeter.svelte';
+export { default as AgentStatusIndicator } from './components/AgentStatusIndicator.svelte';
 export { default as PageHeader } from './components/PageHeader.svelte';
 export { default as UserManagement } from './components/UserManagement.svelte';
 export { default as AppShell } from './components/AppShell.svelte';
@@ -62,6 +78,7 @@ export type {
 	AppShellNavItem,
 	ButtonSize,
 	ButtonVariant,
+	AgentStatus,
 	ComponentMetadata,
 	ConfirmDialogTone,
 	DataTableColumn,

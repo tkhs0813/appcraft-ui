@@ -16,3 +16,5 @@ Use these rules in AGENTS.md for apps that adopt Agent UI.
 - For developer tools and AI workspaces, use product components such as `ApiKeyManager`, `LogViewer`, `ChatPanel`, `PromptComposer`, `KnowledgeBaseLayout`, and `MediaGallery`.
 - For auth, billing, pricing, checkout, and orders, use provider-agnostic callbacks in Agent UI components; do not embed provider logic in UI.
 - Use `agent-ui describe`, `agent-ui rules`, and `agent-ui suggest --use-case "..."` when an agent needs component selection guidance.
+
+- Atom Pack primitives cover small reusable surfaces: `IconButton`, `Badge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `CheckboxField`, `RadioGroupField`, `NumberField`, `CodeBlock`, `CopyButton`, `KeyboardShortcut`, `TokenMeter`, and `AgentStatusIndicator`. Prefer these atoms over raw HTML when composing new patterns.

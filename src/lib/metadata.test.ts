@@ -59,7 +59,23 @@ const publicComponentNames = [
 	'BillingSettings',
 	'PricingTable',
 	'CheckoutSummary',
-	'OrderList'
+	'OrderList',
+	'IconButton',
+	'Badge',
+	'Avatar',
+	'Spinner',
+	'ProgressBar',
+	'Skeleton',
+	'Tooltip',
+	'Separator',
+	'CheckboxField',
+	'RadioGroupField',
+	'NumberField',
+	'CodeBlock',
+	'CopyButton',
+	'KeyboardShortcut',
+	'TokenMeter',
+	'AgentStatusIndicator'
 ];
 
 describe('componentMetadata', () => {
@@ -132,5 +148,32 @@ describe('componentMetadata', () => {
 		expect(pricingTable?.forbiddenPatterns).toContain(
 			'Do not hard-code billing provider logic inside UI.'
 		);
+	});
+
+	it('marks Atom Pack components as primitives with agent-safe guardrails', () => {
+		const atomNames = [
+			'IconButton',
+			'Badge',
+			'Avatar',
+			'Spinner',
+			'ProgressBar',
+			'Skeleton',
+			'Tooltip',
+			'Separator',
+			'CheckboxField',
+			'RadioGroupField',
+			'NumberField',
+			'CodeBlock',
+			'CopyButton',
+			'KeyboardShortcut',
+			'TokenMeter',
+			'AgentStatusIndicator'
+		];
+
+		for (const name of atomNames) {
+			const atom = componentMetadata.find((item) => item.name === name);
+			expect(atom?.category).toBe('primitive');
+			expect(atom?.forbiddenPatterns).toContain('Do not pass custom CSS classes.');
+		}
 	});
 });

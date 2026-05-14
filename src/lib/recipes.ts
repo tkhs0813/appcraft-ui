@@ -71,6 +71,25 @@ export const componentRecipes: ComponentRecipe[] = [
 		keywords: ['pricing', 'checkout', 'billing', 'order', 'plan', 'commerce'],
 		components: ['PricingTable', 'CheckoutSummary', 'BillingSettings', 'OrderList'],
 		notes: 'Keep billing provider logic outside UI; components emit callbacks.'
+	},
+	{
+		useCase: 'agent atoms and compact composition',
+		keywords: ['agent', 'token', 'usage', 'status', 'copy', 'code', 'shortcut', 'loading'],
+		components: [
+			'IconButton',
+			'Badge',
+			'Avatar',
+			'Spinner',
+			'ProgressBar',
+			'Skeleton',
+			'CodeBlock',
+			'CopyButton',
+			'KeyboardShortcut',
+			'TokenMeter',
+			'AgentStatusIndicator'
+		],
+		notes:
+			'Use Atom Pack primitives for compact actions, identity, loading, code, copy, token usage, and agent status instead of raw HTML.'
 	}
 ];
 

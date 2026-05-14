@@ -96,3 +96,5 @@ export type ComponentRecipe = {
 	components: string[];
 	notes: string;
 };
+
+export type AgentStatus = 'idle' | 'thinking' | 'running' | 'waiting' | 'failed' | 'completed';

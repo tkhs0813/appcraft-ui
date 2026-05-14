@@ -83,6 +83,8 @@ Use components from the package root:
 
 ## Component coverage
 
+The Atom Pack adds `IconButton`, `Badge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `CheckboxField`, `RadioGroupField`, `NumberField`, `CodeBlock`, `CopyButton`, `KeyboardShortcut`, `TokenMeter`, and `AgentStatusIndicator` for small AI-safe UI composition.
+
 Agent UI now includes the full roadmap surface: feedback/navigation patterns, resource and developer-tool product components, AI workspace components, content/media/knowledge layouts, account/auth/billing/commerce flows, plus agent-facing recipes and CLI helpers.
 
 ```bash
