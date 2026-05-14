@@ -4,11 +4,24 @@
 		AppShell,
 		Button,
 		ConfirmDialog,
+		DataTable,
 		EmptyState,
 		ErrorState,
+		FormSection,
+		Pagination,
 		PageHeader,
+		SearchFilterBar,
+		SelectField,
+		StatusBadge,
+		SubmitBar,
+		SwitchField,
+		TextareaField,
+		TextField,
 		UserManagement,
 		type AppShellNavItem,
+		type DataTableColumn,
+		type DataTableRow,
+		type SearchFilter,
 		type UserManagementUser
 	} from '$lib/index.js';
 
@@ -20,6 +33,43 @@
 	];
 
 	let showDialog = $state(false);
+	let workspaceName = $state('Acme Workspace');
+	let workspaceDescription = $state('A workspace for AI-built application experiments.');
+	let visibility = $state('private');
+	let automationsEnabled = $state(true);
+	let query = $state('');
+	let resourceType = $state('all');
+	let page = $state(1);
+
+	const filters: SearchFilter[] = [
+		{
+			key: 'type',
+			label: 'Type',
+			options: [
+				{ value: 'workflow', label: 'Workflow' },
+				{ value: 'document', label: 'Document' },
+				{ value: 'dataset', label: 'Dataset' }
+			]
+		}
+	];
+
+	const resourceColumns: DataTableColumn[] = [
+		{ key: 'name', label: 'Name', sortable: true },
+		{ key: 'type', label: 'Type' },
+		{
+			key: 'status',
+			label: 'Status',
+			kind: 'badge',
+			tone: (value) => (value === 'Ready' ? 'success' : 'warning')
+		},
+		{ key: 'updated', label: 'Updated', align: 'right' }
+	];
+
+	const resources: DataTableRow[] = [
+		{ id: 'r1', name: 'Research assistant', type: 'Workflow', status: 'Ready', updated: '2m ago' },
+		{ id: 'r2', name: 'Launch notes', type: 'Document', status: 'Draft', updated: '1h ago' },
+		{ id: 'r3', name: 'Evaluation set', type: 'Dataset', status: 'Ready', updated: 'Yesterday' }
+	];
 
 	const users: UserManagementUser[] = [
 		{
@@ -81,6 +131,80 @@
 			primaryAction={{ label: 'Invite member', onClick: () => undefined }}
 			secondaryAction={{ label: 'Export', onClick: () => undefined }}
 		/>
+
+		<FormSection
+			title="Workspace profile"
+			description="Phase 1 form components keep labels, help text, validation, and submit states consistent."
+			status="Autosaved"
+		>
+			<div class="form-grid">
+				<TextField
+					label="Workspace name"
+					value={workspaceName}
+					description="Shown in navigation and shared resources."
+					required
+					onInput={(value) => (workspaceName = value)}
+				/>
+				<SelectField
+					label="Visibility"
+					value={visibility}
+					options={[
+						{ value: 'private', label: 'Private' },
+						{ value: 'team', label: 'Team' },
+						{ value: 'public', label: 'Public' }
+					]}
+					onChange={(value) => (visibility = value)}
+				/>
+			</div>
+			<TextareaField
+				label="Description"
+				value={workspaceDescription}
+				description="Use multiline fields for prompts, notes, summaries, and content metadata."
+				onInput={(value) => (workspaceDescription = value)}
+			/>
+			<SwitchField
+				label="Enable automations"
+				description="Switches stay accessible and consistent without hand-rolled toggle UI."
+				checked={automationsEnabled}
+				onChange={(value) => (automationsEnabled = value)}
+			/>
+			<SubmitBar
+				status="dirty"
+				message="Demo changes are local only."
+				onSubmit={() => undefined}
+				onCancel={() => undefined}
+			/>
+		</FormSection>
+
+		<SearchFilterBar
+			{query}
+			{filters}
+			activeFilters={{ type: resourceType }}
+			resultCount={resources.length}
+			onQueryChange={(value) => (query = value)}
+			onFilterChange={(_, value) => (resourceType = value || 'all')}
+			onClear={() => {
+				query = '';
+				resourceType = 'all';
+			}}
+		/>
+
+		<DataTable
+			columns={resourceColumns}
+			rows={resources}
+			sortKey="name"
+			rowActions={[
+				{ label: 'Open', onSelect: () => undefined },
+				{ label: 'Delete', tone: 'danger', onSelect: () => (showDialog = true) }
+			]}
+		/>
+		<Pagination {page} pageCount={4} onPageChange={(value) => (page = value)} />
+
+		<div class="badge-row" aria-label="Status badge examples">
+			<StatusBadge label="Ready" tone="success" />
+			<StatusBadge label="Draft" tone="warning" />
+			<StatusBadge label="Blocked" tone="danger" />
+		</div>
 
 		<UserManagement
 			{users}
@@ -167,10 +291,17 @@
 	}
 
 	.actions,
-	.state-grid {
+	.state-grid,
+	.badge-row {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.75rem;
+	}
+
+	.form-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
 	}
 
 	.actions {
@@ -183,5 +314,10 @@
 
 	.state-grid > :global(*) {
 		flex: 1 1 22rem;
+	}
+	@media (max-width: 720px) {
+		.form-grid {
+			grid-template-columns: 1fr;
+		}
 	}
 </style>

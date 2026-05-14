@@ -66,6 +66,11 @@ Expected:
 - `EmptyState` — reusable empty state panel with semantic actions.
 - `ErrorState` — recoverable error state with retry/support actions.
 - `ConfirmDialog` — destructive or high-impact action confirmation dialog.
+- `TextField` / `TextareaField` / `SelectField` / `SwitchField` — labeled, accessible form controls with built-in descriptions and errors.
+- `FormSection` / `SubmitBar` — structured form grouping and save-state actions.
+- `StatusBadge` — semantic status indicator.
+- `DataTable` — data table with loading, empty, error, sorting hooks, badges, and row actions.
+- `SearchFilterBar` / `Pagination` — list/table search, filters, result counts, and page navigation.
 
 ## Good API Example
 

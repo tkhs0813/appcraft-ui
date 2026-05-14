@@ -9,7 +9,17 @@ const publicComponentNames = [
 	'AppShell',
 	'EmptyState',
 	'ErrorState',
-	'ConfirmDialog'
+	'ConfirmDialog',
+	'TextField',
+	'TextareaField',
+	'SelectField',
+	'SwitchField',
+	'FormSection',
+	'SubmitBar',
+	'StatusBadge',
+	'DataTable',
+	'SearchFilterBar',
+	'Pagination'
 ];
 
 describe('componentMetadata', () => {
@@ -45,5 +55,23 @@ describe('componentMetadata', () => {
 		expect(confirmDialog?.forbiddenPatterns).toContain(
 			'Do not use window.confirm for destructive product flows.'
 		);
+	});
+
+	it('marks Phase 1 form and data components with anti-reimplementation guardrails', () => {
+		const textField = componentMetadata.find((item) => item.name === 'TextField');
+		const formSection = componentMetadata.find((item) => item.name === 'FormSection');
+		const dataTable = componentMetadata.find((item) => item.name === 'DataTable');
+		const searchFilterBar = componentMetadata.find((item) => item.name === 'SearchFilterBar');
+		const pagination = componentMetadata.find((item) => item.name === 'Pagination');
+
+		expect(textField?.forbiddenPatterns).toContain('Do not hand-roll labeled inputs.');
+		expect(formSection?.forbiddenPatterns).toContain(
+			'Do not compose settings forms from loose divs.'
+		);
+		expect(dataTable?.forbiddenPatterns).toContain('Do not recreate sortable data tables by hand.');
+		expect(searchFilterBar?.forbiddenPatterns).toContain(
+			'Do not scatter search and filter controls across the page.'
+		);
+		expect(pagination?.forbiddenPatterns).toContain('Do not hand-roll pagination controls.');
 	});
 });

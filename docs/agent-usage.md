@@ -8,4 +8,6 @@ Use these rules in AGENTS.md for apps that adopt Agent UI.
 - Use semantic props such as `variant`, `tone`, `size`, `state`, and callbacks.
 - Preserve the default Agent UI theme.
 - For team member management, use `UserManagement` rather than assembling a custom table.
-- Use built-in loading, empty, error, and destructive action states.
+- For settings and edit screens, use `FormSection`, `TextField`, `TextareaField`, `SelectField`, `SwitchField`, and `SubmitBar` rather than loose labels, inputs, and buttons.
+- For resource lists, use `SearchFilterBar`, `DataTable`, `StatusBadge`, and `Pagination` rather than custom table/filter/pager markup.
+- Use built-in loading, empty, error, dirty/saving/saved, and destructive action states.

@@ -38,11 +38,24 @@ Use components from the package root:
 
 ```svelte
 <script lang="ts">
-	import { Button, PageHeader, UserManagement } from 'agent-ui';
+	import {
+		DataTable,
+		FormSection,
+		PageHeader,
+		SearchFilterBar,
+		TextField,
+		UserManagement
+	} from 'agent-ui';
 
+	let workspaceName = $state('Acme');
 	const users = [
 		{ id: '1', name: 'Ryo', email: 'ryo@example.com', role: 'owner', status: 'active' }
 	];
+	const columns = [
+		{ key: 'name', label: 'Name', sortable: true },
+		{ key: 'status', label: 'Status', kind: 'badge' }
+	];
+	const rows = [{ id: '1', name: 'Research assistant', status: 'Ready' }];
 </script>
 
 <PageHeader
@@ -50,6 +63,20 @@ Use components from the package root:
 	description="Manage members and roles for your workspace."
 	primaryAction={{ label: 'Invite member', onClick: () => {} }}
 />
+
+<FormSection
+	title="Workspace profile"
+	description="Use semantic fields instead of loose form markup."
+>
+	<TextField
+		label="Workspace name"
+		value={workspaceName}
+		onInput={(value) => (workspaceName = value)}
+	/>
+</FormSection>
+
+<SearchFilterBar query="" resultCount={rows.length} />
+<DataTable {columns} {rows} />
 
 <UserManagement {users} onInvite={() => {}} />
 ```
