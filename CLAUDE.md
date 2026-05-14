@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This repository contains **Agent UI**, a production-grade Svelte component SDK for AI-built SaaS apps.
+This repository contains **Agent UI**, a production-grade Svelte component SDK for AI-built applications.
 
 ## Product Direction
 
@@ -60,8 +60,12 @@ Expected:
 ## Current Public Components
 
 - `Button` — primitive action button with semantic variants and loading state.
-- `PageHeader` — SaaS/admin page header with optional actions.
+- `PageHeader` — application page header with optional actions.
 - `UserManagement` — product component for workspace/team member management.
+- `AppShell` — application shell with navigation, workspace context, top bar, and user affordance.
+- `EmptyState` — reusable empty state panel with semantic actions.
+- `ErrorState` — recoverable error state with retry/support actions.
+- `ConfirmDialog` — destructive or high-impact action confirmation dialog.
 
 ## Good API Example
 

@@ -11,7 +11,7 @@ export const componentMetadata: ComponentMetadata[] = [
 	{
 		name: 'PageHeader',
 		category: 'pattern',
-		description: 'Consistent SaaS page heading with optional primary and secondary actions.',
+		description: 'Consistent application page heading with optional primary and secondary actions.',
 		useCases: ['dashboard pages', 'settings pages', 'admin pages'],
 		forbiddenPatterns: ['Do not hand-roll page title/action layouts when this component fits.']
 	},
@@ -31,10 +31,10 @@ export const componentMetadata: ComponentMetadata[] = [
 		name: 'AppShell',
 		category: 'pattern',
 		description:
-			'Responsive SaaS application shell with product branding, workspace context, navigation, top bar, and user affordance.',
+			'Responsive application shell with product branding, workspace context, navigation, top bar, and user affordance.',
 		useCases: ['dashboard layout', 'admin console shell', 'workspace application navigation'],
 		forbiddenPatterns: [
-			'Do not hand-roll SaaS navigation shells.',
+			'Do not hand-roll application navigation shells.',
 			'Do not expose layout class overrides.',
 			'Pass semantic navigation items and content only.'
 		]

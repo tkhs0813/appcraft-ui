@@ -5,6 +5,7 @@ Agent UI is an AI-native UI SDK, not a design sandbox.
 ## Product stance
 
 - Package-based SDK, not shadcn-style copy/paste.
+- Broad AI-built applications are in scope: admin tools, developer tools, AI workspaces, content apps, commerce flows, knowledge bases, internal tools, personal productivity apps, and SaaS products where relevant.
 - The library owns visual quality, spacing, typography, states, and interaction polish.
 - Consumers pass data, intent, and callbacks.
 - The initial release has exactly one theme.

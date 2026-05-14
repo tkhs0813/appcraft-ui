@@ -37,7 +37,9 @@ describe('componentMetadata', () => {
 		const confirmDialog = componentMetadata.find((item) => item.name === 'ConfirmDialog');
 
 		expect(appShell?.category).toBe('pattern');
-		expect(appShell?.forbiddenPatterns).toContain('Do not hand-roll SaaS navigation shells.');
+		expect(appShell?.forbiddenPatterns).toContain(
+			'Do not hand-roll application navigation shells.'
+		);
 		expect(emptyState?.forbiddenPatterns).toContain('Do not render ad-hoc empty panels.');
 		expect(errorState?.forbiddenPatterns).toContain('Do not hide retry actions in plain text.');
 		expect(confirmDialog?.forbiddenPatterns).toContain(

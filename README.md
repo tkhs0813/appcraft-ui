@@ -1,6 +1,6 @@
 # Agent UI
 
-Production-grade Svelte components for AI-built SaaS apps.
+Production-grade Svelte components for AI-built applications.
 
 Agent UI is a constrained component SDK designed for AI coding agents. It ships one polished theme, semantic component APIs, built-in application states, and machine-readable metadata so agents can build consistent product interfaces without breaking visual quality.
 
@@ -10,9 +10,13 @@ Agent UI is a constrained component SDK designed for AI coding agents. It ships 
 - No arbitrary styling by default
 - Semantic props only
 - Built-in loading, empty, error, and destructive states
-- Product-ready SaaS components
+- Product-ready application components
 - Machine-readable component metadata
 - Rules and docs for AI coding agents
+
+## Roadmap
+
+The component roadmap is intentionally broader than SaaS: admin tools, developer tools, AI workspaces, content apps, commerce flows, knowledge bases, internal tools, and personal productivity apps are all in scope. See `docs/plans/2026-05-14-component-roadmap.md`.
 
 ## Not shadcn
 

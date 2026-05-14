@@ -48,7 +48,10 @@
 
 <svelte:head>
 	<title>Agent UI</title>
-	<meta name="description" content="Production-grade Svelte components for AI-built SaaS apps." />
+	<meta
+		name="description"
+		content="Production-grade Svelte components for AI-built applications."
+	/>
 </svelte:head>
 
 <AppShell
@@ -61,7 +64,7 @@
 	<section class="demo aui-root">
 		<section class="hero">
 			<p class="eyebrow">Agent UI</p>
-			<h1>Production-grade Svelte components for AI-built SaaS apps.</h1>
+			<h1>Production-grade Svelte components for AI-built applications.</h1>
 			<p>
 				A constrained UI SDK with one polished theme, semantic props, built-in states, and
 				machine-readable component metadata.
