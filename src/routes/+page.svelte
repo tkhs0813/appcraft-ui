@@ -1,15 +1,22 @@
 <script lang="ts">
 	import '../lib/styles.css';
 	import {
+		Alert,
 		AppShell,
+		Banner,
 		Button,
+		ChatPanel,
+		CommandPalette,
 		ConfirmDialog,
 		DataTable,
 		EmptyState,
 		ErrorState,
 		FormSection,
+		MetricCard,
 		Pagination,
 		PageHeader,
+		PricingTable,
+		ResourceList,
 		SearchFilterBar,
 		SelectField,
 		StatusBadge,
@@ -40,6 +47,7 @@
 	let query = $state('');
 	let resourceType = $state('all');
 	let page = $state(1);
+	let commandPaletteOpen = $state(false);
 
 	const filters: SearchFilter[] = [
 		{
@@ -122,8 +130,31 @@
 			<div class="actions">
 				<Button label="Get started" />
 				<Button variant="secondary" label="View metadata" />
+				<Button
+					variant="ghost"
+					label="Open command palette"
+					onClick={() => (commandPaletteOpen = true)}
+				/>
 			</div>
 		</section>
+
+		<Banner
+			title="All roadmap phases are represented"
+			description="Feedback, navigation, resource management, AI workspace, account, commerce, recipes, and CLI surfaces now exist as package components."
+		/>
+
+		<div class="metric-grid">
+			<MetricCard
+				title="Components"
+				items={[{ id: 'components', title: '57 public exports', status: 'Ready', tone: 'success' }]}
+			/>
+			<Alert
+				title="Agent guardrails"
+				items={[
+					{ id: 'guardrails', title: 'Metadata + recipes + CLI', status: 'Ready', tone: 'brand' }
+				]}
+			/>
+		</div>
 
 		<PageHeader
 			title="Team members"
@@ -200,6 +231,55 @@
 		/>
 		<Pagination {page} pageCount={4} onPageChange={(value) => (page = value)} />
 
+		<ResourceList
+			title="Resource management"
+			description="Phase 3 product components cover CRUD, developer tools, files, jobs, logs, and inspectors."
+			items={resources.map((resource) => ({
+				id: String(resource.id),
+				title: String(resource.name),
+				description: String(resource.type),
+				status: String(resource.status),
+				tone: resource.status === 'Ready' ? 'success' : 'warning',
+				meta: String(resource.updated)
+			}))}
+		/>
+
+		<ChatPanel
+			title="AI workspace"
+			description="Phase 4 components stay provider-agnostic for chat, prompts, knowledge, media, and collaboration apps."
+			items={[
+				{
+					id: 'm1',
+					title: 'User',
+					description: 'Summarize this research note.',
+					status: 'sent',
+					tone: 'brand'
+				},
+				{
+					id: 'm2',
+					title: 'Assistant',
+					description: 'Here is a structured summary...',
+					status: 'ready',
+					tone: 'success'
+				}
+			]}
+		/>
+
+		<PricingTable
+			title="Commerce flows"
+			description="Phase 5 components model auth, account, billing, pricing, checkout, and orders without provider lock-in."
+			items={[
+				{
+					id: 'starter',
+					title: 'Starter',
+					description: '$19 / month',
+					status: 'Current',
+					tone: 'success'
+				},
+				{ id: 'pro', title: 'Pro', description: '$49 / month', status: 'Popular', tone: 'brand' }
+			]}
+		/>
+
 		<div class="badge-row" aria-label="Status badge examples">
 			<StatusBadge label="Ready" tone="success" />
 			<StatusBadge label="Draft" tone="warning" />
@@ -237,6 +317,17 @@
 	confirmLabel="Remove member"
 	onConfirm={() => (showDialog = false)}
 	onCancel={() => (showDialog = false)}
+/>
+
+<CommandPalette
+	open={commandPaletteOpen}
+	actions={[
+		{ id: 'describe', label: 'agent-ui describe ResourceList', hint: 'CLI' },
+		{ id: 'rules', label: 'agent-ui rules', hint: 'CLI' },
+		{ id: 'suggest', label: 'agent-ui suggest --use-case chat workspace', hint: 'CLI' }
+	]}
+	onSelect={() => (commandPaletteOpen = false)}
+	onClose={() => (commandPaletteOpen = false)}
 />
 
 <style>
@@ -298,7 +389,8 @@
 		gap: 0.75rem;
 	}
 
-	.form-grid {
+	.form-grid,
+	.metric-grid {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 1rem;
@@ -316,7 +408,8 @@
 		flex: 1 1 22rem;
 	}
 	@media (max-width: 720px) {
-		.form-grid {
+		.form-grid,
+		.metric-grid {
 			grid-template-columns: 1fr;
 		}
 	}

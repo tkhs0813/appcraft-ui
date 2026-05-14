@@ -15,7 +15,48 @@ export { default as StatusBadge } from './components/StatusBadge.svelte';
 export { default as DataTable } from './components/DataTable.svelte';
 export { default as SearchFilterBar } from './components/SearchFilterBar.svelte';
 export { default as Pagination } from './components/Pagination.svelte';
+export { default as Alert } from './components/Alert.svelte';
+export { default as Banner } from './components/Banner.svelte';
+export { default as ToastViewport } from './components/ToastViewport.svelte';
+export { default as Tabs } from './components/Tabs.svelte';
+export { default as Breadcrumbs } from './components/Breadcrumbs.svelte';
+export { default as CardGrid } from './components/CardGrid.svelte';
+export { default as MetricCard } from './components/MetricCard.svelte';
+export { default as ActivityFeed } from './components/ActivityFeed.svelte';
+export { default as Timeline } from './components/Timeline.svelte';
+export { default as CommandPalette } from './components/CommandPalette.svelte';
+export { default as ResourceList } from './components/ResourceList.svelte';
+export { default as ResourceGrid } from './components/ResourceGrid.svelte';
+export { default as ResourceDetail } from './components/ResourceDetail.svelte';
+export { default as FileUploader } from './components/FileUploader.svelte';
+export { default as FileList } from './components/FileList.svelte';
+export { default as ApiKeyManager } from './components/ApiKeyManager.svelte';
+export { default as IntegrationList } from './components/IntegrationList.svelte';
+export { default as JobRunList } from './components/JobRunList.svelte';
+export { default as LogViewer } from './components/LogViewer.svelte';
+export { default as InspectorPanel } from './components/InspectorPanel.svelte';
+export { default as ChatPanel } from './components/ChatPanel.svelte';
+export { default as ConversationList } from './components/ConversationList.svelte';
+export { default as PromptComposer } from './components/PromptComposer.svelte';
+export { default as NotificationCenter } from './components/NotificationCenter.svelte';
+export { default as KanbanBoard } from './components/KanbanBoard.svelte';
+export { default as CalendarList } from './components/CalendarList.svelte';
+export { default as ContentEditorShell } from './components/ContentEditorShell.svelte';
+export { default as MediaGallery } from './components/MediaGallery.svelte';
+export { default as KnowledgeBaseLayout } from './components/KnowledgeBaseLayout.svelte';
+export { default as DocumentList } from './components/DocumentList.svelte';
+export { default as SignInForm } from './components/SignInForm.svelte';
+export { default as SignUpForm } from './components/SignUpForm.svelte';
+export { default as ForgotPasswordForm } from './components/ForgotPasswordForm.svelte';
+export { default as ResetPasswordForm } from './components/ResetPasswordForm.svelte';
+export { default as ProfileSettings } from './components/ProfileSettings.svelte';
+export { default as WorkspaceSettings } from './components/WorkspaceSettings.svelte';
+export { default as BillingSettings } from './components/BillingSettings.svelte';
+export { default as PricingTable } from './components/PricingTable.svelte';
+export { default as CheckoutSummary } from './components/CheckoutSummary.svelte';
+export { default as OrderList } from './components/OrderList.svelte';
 export { componentMetadata } from './metadata.js';
+export { componentRecipes, suggestComponents } from './recipes.js';
 export type {
 	ActionConfig,
 	AppShellNavItem,
@@ -39,5 +80,6 @@ export type {
 	SubmitBarAction,
 	TextInputType,
 	UserManagementRole,
-	UserManagementUser
+	UserManagementUser,
+	ComponentRecipe
 } from './types.js';

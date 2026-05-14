@@ -81,6 +81,16 @@ Use components from the package root:
 <UserManagement {users} onInvite={() => {}} />
 ```
 
+## Component coverage
+
+Agent UI now includes the full roadmap surface: feedback/navigation patterns, resource and developer-tool product components, AI workspace components, content/media/knowledge layouts, account/auth/billing/commerce flows, plus agent-facing recipes and CLI helpers.
+
+```bash
+agent-ui describe ResourceList
+agent-ui rules
+agent-ui suggest --use-case "chat workspace with prompt composer"
+```
+
 ## Development
 
 ```bash

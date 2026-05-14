@@ -19,7 +19,47 @@ const publicComponentNames = [
 	'StatusBadge',
 	'DataTable',
 	'SearchFilterBar',
-	'Pagination'
+	'Pagination',
+	'Alert',
+	'Banner',
+	'ToastViewport',
+	'Tabs',
+	'Breadcrumbs',
+	'CardGrid',
+	'MetricCard',
+	'ActivityFeed',
+	'Timeline',
+	'CommandPalette',
+	'ResourceList',
+	'ResourceGrid',
+	'ResourceDetail',
+	'FileUploader',
+	'FileList',
+	'ApiKeyManager',
+	'IntegrationList',
+	'JobRunList',
+	'LogViewer',
+	'InspectorPanel',
+	'ChatPanel',
+	'ConversationList',
+	'PromptComposer',
+	'NotificationCenter',
+	'KanbanBoard',
+	'CalendarList',
+	'ContentEditorShell',
+	'MediaGallery',
+	'KnowledgeBaseLayout',
+	'DocumentList',
+	'SignInForm',
+	'SignUpForm',
+	'ForgotPasswordForm',
+	'ResetPasswordForm',
+	'ProfileSettings',
+	'WorkspaceSettings',
+	'BillingSettings',
+	'PricingTable',
+	'CheckoutSummary',
+	'OrderList'
 ];
 
 describe('componentMetadata', () => {
@@ -73,5 +113,24 @@ describe('componentMetadata', () => {
 			'Do not scatter search and filter controls across the page.'
 		);
 		expect(pagination?.forbiddenPatterns).toContain('Do not hand-roll pagination controls.');
+	});
+
+	it('marks later phase components with anti-reimplementation guardrails', () => {
+		const commandPalette = componentMetadata.find((item) => item.name === 'CommandPalette');
+		const resourceList = componentMetadata.find((item) => item.name === 'ResourceList');
+		const chatPanel = componentMetadata.find((item) => item.name === 'ChatPanel');
+		const pricingTable = componentMetadata.find((item) => item.name === 'PricingTable');
+
+		expect(commandPalette?.forbiddenPatterns).toContain(
+			'Do not hand-roll command palette keyboard interactions.'
+		);
+		expect(resourceList?.category).toBe('product');
+		expect(resourceList?.forbiddenPatterns).toContain(
+			'Do not compose resource CRUD lists from loose cards and buttons.'
+		);
+		expect(chatPanel?.forbiddenPatterns).toContain('Do not bake in a specific LLM provider.');
+		expect(pricingTable?.forbiddenPatterns).toContain(
+			'Do not hard-code billing provider logic inside UI.'
+		);
 	});
 });

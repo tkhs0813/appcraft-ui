@@ -2,6 +2,8 @@
 
 > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.
 
+**Status:** Phase 0-6 implemented in the package surface; continue hardening depth and APIs over time.
+
 **Goal:** Build Agent UI into a practical component SDK for broad AI-built applications, not only SaaS/admin dashboards.
 
 **Architecture:** Keep a small set of polished primitives and patterns, then prioritize higher-level product/application components that encode complete states and safe interactions. Components should accept data, semantic intent, and callbacks; the library owns layout, interaction polish, accessibility, and visual quality.

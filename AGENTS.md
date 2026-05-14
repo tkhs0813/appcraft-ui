@@ -72,6 +72,9 @@ Expected:
 - `DataTable` — data table with loading, empty, error, sorting hooks, badges, and row actions.
 - `SearchFilterBar` / `Pagination` — list/table search, filters, result counts, and page navigation.
 
+- Later phases are also public: feedback/navigation (`Alert`, `Banner`, `ToastViewport`, `Tabs`, `Breadcrumbs`, `CommandPalette`), resource/developer tools (`ResourceList`, `ApiKeyManager`, `LogViewer`, `InspectorPanel`), AI/content workspaces (`ChatPanel`, `PromptComposer`, `KnowledgeBaseLayout`, `MediaGallery`), and account/commerce flows (`SignInForm`, `BillingSettings`, `PricingTable`, `CheckoutSummary`).
+- Agent-facing helpers exist in `src/lib/recipes.ts` and `src/lib/cli.ts`; keep recipes, CLI output, metadata, and public exports in sync.
+
 ## Good API Example
 
 ```svelte

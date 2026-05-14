@@ -11,3 +11,8 @@ Use these rules in AGENTS.md for apps that adopt Agent UI.
 - For settings and edit screens, use `FormSection`, `TextField`, `TextareaField`, `SelectField`, `SwitchField`, and `SubmitBar` rather than loose labels, inputs, and buttons.
 - For resource lists, use `SearchFilterBar`, `DataTable`, `StatusBadge`, and `Pagination` rather than custom table/filter/pager markup.
 - Use built-in loading, empty, error, dirty/saving/saved, and destructive action states.
+
+- For feedback and navigation, use `Alert`, `Banner`, `ToastViewport`, `Tabs`, `Breadcrumbs`, `CommandPalette`, and related layout components.
+- For developer tools and AI workspaces, use product components such as `ApiKeyManager`, `LogViewer`, `ChatPanel`, `PromptComposer`, `KnowledgeBaseLayout`, and `MediaGallery`.
+- For auth, billing, pricing, checkout, and orders, use provider-agnostic callbacks in Agent UI components; do not embed provider logic in UI.
+- Use `agent-ui describe`, `agent-ui rules`, and `agent-ui suggest --use-case "..."` when an agent needs component selection guidance.

@@ -32,7 +32,11 @@
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js"
 		},
-		"./styles.css": "./dist/styles.css"
+		"./styles.css": "./dist/styles.css",
+		"./cli": {
+			"types": "./dist/cli.d.ts",
+			"default": "./dist/cli.js"
+		}
 	},
 	"peerDependencies": {
 		"svelte": "^5.0.0"
@@ -65,5 +69,8 @@
 		"components",
 		"ai-agents",
 		"ai-apps"
-	]
+	],
+	"bin": {
+		"agent-ui": "./dist/cli.js"
+	}
 }

@@ -1,0 +1,84 @@
+import type { ComponentRecipe } from './types.js';
+
+export const componentRecipes: ComponentRecipe[] = [
+	{
+		useCase: 'settings and account screens',
+		keywords: ['settings', 'profile', 'workspace', 'account', 'preferences'],
+		components: [
+			'FormSection',
+			'TextField',
+			'SelectField',
+			'SwitchField',
+			'SubmitBar',
+			'ProfileSettings',
+			'WorkspaceSettings'
+		],
+		notes:
+			'Use semantic form controls and product settings components instead of loose form markup.'
+	},
+	{
+		useCase: 'resource management and CRUD',
+		keywords: ['resource', 'crud', 'list', 'table', 'admin', 'inventory'],
+		components: [
+			'SearchFilterBar',
+			'DataTable',
+			'ResourceList',
+			'ResourceGrid',
+			'ResourceDetail',
+			'Pagination'
+		],
+		notes: 'Use built-in search, empty, loading, error, row action, and pagination states.'
+	},
+	{
+		useCase: 'developer tools',
+		keywords: ['developer', 'api', 'key', 'logs', 'job', 'files', 'inspector'],
+		components: [
+			'ApiKeyManager',
+			'FileList',
+			'FileUploader',
+			'JobRunList',
+			'LogViewer',
+			'InspectorPanel'
+		],
+		notes: 'Keep data and callbacks provider-agnostic; the app owns backend behavior.'
+	},
+	{
+		useCase: 'AI chat and prompt workspaces',
+		keywords: ['chat', 'prompt', 'conversation', 'llm', 'ai', 'workspace'],
+		components: [
+			'ChatPanel',
+			'ConversationList',
+			'PromptComposer',
+			'CommandPalette',
+			'NotificationCenter'
+		],
+		notes: 'Do not bake in a specific LLM provider; pass messages, prompts, actions, and callbacks.'
+	},
+	{
+		useCase: 'content, knowledge, and media apps',
+		keywords: ['content', 'document', 'knowledge', 'media', 'editor', 'gallery'],
+		components: [
+			'ContentEditorShell',
+			'DocumentList',
+			'KnowledgeBaseLayout',
+			'MediaGallery',
+			'CardGrid'
+		],
+		notes: 'Use product shells for layout and metadata rather than raw editor scaffolding.'
+	},
+	{
+		useCase: 'commerce and billing',
+		keywords: ['pricing', 'checkout', 'billing', 'order', 'plan', 'commerce'],
+		components: ['PricingTable', 'CheckoutSummary', 'BillingSettings', 'OrderList'],
+		notes: 'Keep billing provider logic outside UI; components emit callbacks.'
+	}
+];
+
+export function suggestComponents(useCase: string): string[] {
+	const normalized = useCase.toLowerCase();
+	const matches = componentRecipes.filter((recipe) =>
+		recipe.keywords.some((keyword) => normalized.includes(keyword))
+	);
+	const selected = matches.length > 0 ? matches : componentRecipes.slice(0, 2);
+	return [...new Set(selected.flatMap((recipe) => recipe.components))];
+}

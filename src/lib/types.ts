@@ -89,3 +89,10 @@ export type ComponentMetadata = {
 	useCases: string[];
 	forbiddenPatterns: string[];
 };
+
+export type ComponentRecipe = {
+	useCase: string;
+	keywords: string[];
+	components: string[];
+	notes: string;
+};
