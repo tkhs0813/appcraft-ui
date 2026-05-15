@@ -1,8 +1,8 @@
-# Agent UI
+# Appcraft UI
 
 Production-grade Svelte components for AI-built applications.
 
-Agent UI is **not** UI for AI agents. It is a package-based component SDK for building ordinary, polished application screens in a way that AI coding agents can use reliably. Humans and agents pass data, intent, and callbacks; the library owns layout, spacing, visual quality, interaction details, and common application states.
+Appcraft UI is **not** a UI kit for AI agents. It is a package-based component SDK for building ordinary, polished application screens in a way that AI coding agents can use reliably. Humans and agents pass data, intent, and callbacks; the library owns layout, spacing, visual quality, interaction details, and common application states.
 
 ## What this is
 
@@ -26,9 +26,9 @@ A constrained UI library for product applications:
 
 See `docs/principles.md` for the full design stance and `docs/components.md` for the component map.
 
-## Not shadcn, not headless, not "agent chat UI"
+## Not shadcn, not headless, not "AI agent UI"
 
-Agent UI is not a copy-paste component kit, not a headless primitive library, and not a chat/agent-operation interface kit. The library owns the UI. Your app passes data, intent, and callbacks.
+Appcraft UI is not a copy-paste component kit, not a headless primitive library, and not a chat/agent-operation interface kit. The library owns the UI. Your app passes data, intent, and callbacks.
 
 ```svelte
 <UserManagement
@@ -47,13 +47,13 @@ The goal is that an AI coding agent can safely assemble a good application scree
 ## Install
 
 ```bash
-pnpm add agent-ui
+pnpm add appcraft-ui
 ```
 
 Import the stylesheet once in your app:
 
 ```ts
-import 'agent-ui/styles.css';
+import 'appcraft-ui/styles.css';
 ```
 
 Use components from the package root:
@@ -67,7 +67,7 @@ Use components from the package root:
 		SearchFilterBar,
 		TextField,
 		UserManagement
-	} from 'agent-ui';
+	} from 'appcraft-ui';
 
 	let workspaceName = $state('Acme');
 	const users = [
@@ -110,9 +110,9 @@ The current library includes primitives, form controls, page/application pattern
 The Atom Pack adds `IconButton`, `Badge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `CheckboxField`, `RadioGroupField`, `NumberField`, `CodeBlock`, `CopyButton`, `KeyboardShortcut`, `TokenMeter`, and `AgentStatusIndicator` for small safe UI composition.
 
 ```bash
-agent-ui describe ResourceList
-agent-ui rules
-agent-ui suggest --use-case "settings page with billing and team members"
+appcraft-ui describe ResourceList
+appcraft-ui rules
+appcraft-ui suggest --use-case "settings page with billing and team members"
 ```
 
 ## Development

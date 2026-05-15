@@ -1,6 +1,6 @@
 # Component Map
 
-This document defines the intended shape of Agent UI: a broad, AI-agent-friendly application component library. The key point is that these are ordinary product UI components with constrained APIs, not components only for AI agent interfaces.
+This document defines the intended shape of Appcraft UI: a broad, AI-agent-friendly application component library. The key point is that these are ordinary product UI components with constrained APIs, not components only for AI agent interfaces.
 
 ## Foundation primitives
 

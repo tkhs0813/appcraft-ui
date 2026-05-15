@@ -1,5 +1,5 @@
 {
-	"name": "agent-ui",
+	"name": "appcraft-ui",
 	"version": "0.0.1",
 	"description": "Production-grade Svelte components for AI-built applications.",
 	"license": "MIT",
@@ -74,6 +74,6 @@
 		"ai-agents"
 	],
 	"bin": {
-		"agent-ui": "./dist/cli.js"
+		"appcraft-ui": "./dist/cli.js"
 	}
 }

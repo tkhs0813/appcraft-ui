@@ -1,6 +1,6 @@
-# Agent UI Philosophy
+# Appcraft UI Philosophy
 
-Agent UI is an AI-agent-friendly application UI SDK, not a UI kit for AI agents.
+Appcraft UI is an AI-agent-friendly application UI SDK, not a UI kit for AI agents.
 
 ## Product stance
 
@@ -14,7 +14,7 @@ Agent UI is an AI-agent-friendly application UI SDK, not a UI kit for AI agents.
 
 ## Why constraints matter
 
-AI coding agents are good at wiring data and intent, but unreliable at maintaining visual systems. Agent UI gives agents a small, semantic API surface so normal product apps stay consistent even when generated or edited by AI.
+AI coding agents are good at wiring data and intent, but unreliable at maintaining visual systems. Appcraft UI gives agents a small, semantic API surface so normal product apps stay consistent even when generated or edited by AI.
 
 ## API rule
 

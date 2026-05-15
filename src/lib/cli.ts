@@ -19,7 +19,7 @@ export function runCli(argv = process.argv.slice(2)): string {
 
 	if (command === 'rules') {
 		return [
-			'Prefer Agent UI components over hand-rolled UI.',
+			'Prefer Appcraft UI components over hand-rolled UI.',
 			'Do not pass arbitrary CSS classes.',
 			'Use semantic props, data arrays, and callbacks.',
 			'Keep provider and business logic outside UI components.'
@@ -32,9 +32,9 @@ export function runCli(argv = process.argv.slice(2)): string {
 	}
 
 	return [
-		'agent-ui describe <component>',
-		'agent-ui rules',
-		'agent-ui suggest --use-case "resource admin table"',
+		'appcraft-ui describe <component>',
+		'appcraft-ui rules',
+		'appcraft-ui suggest --use-case "resource admin table"',
 		'',
 		`Recipes: ${componentRecipes.map((recipe) => recipe.useCase).join(', ')}`
 	].join('\n');

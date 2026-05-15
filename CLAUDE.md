@@ -1,18 +1,18 @@
 # AGENTS.md
 
-This repository contains **Agent UI**, a production-grade Svelte component SDK for AI-built applications.
+This repository contains **Appcraft UI**, a production-grade Svelte component SDK for AI-built applications.
 
-Important clarification: Agent UI is **not** primarily UI for AI agents. It is a broad application UI library designed so AI coding agents can build normal product screens reliably.
+Important clarification: Appcraft UI is **not** primarily UI for AI agents. It is a broad application UI library designed so AI coding agents can build normal product screens reliably.
 
 ## Product Direction
 
-Agent UI is **not** a shadcn-style copy/paste kit. It is a package-based UI SDK.
+Appcraft UI is **not** a shadcn-style copy/paste kit. It is a package-based UI SDK.
 
 - The library owns the polished UI.
 - Apps pass data, intent, state, and callbacks.
 - The initial product ships with one fixed theme.
 - Arbitrary visual customization is intentionally not part of the default API.
-- AI coding agents should use existing Agent UI components instead of recreating UI manually.
+- AI coding agents should use existing Appcraft UI components instead of recreating UI manually.
 - Do not narrow the library to chat, assistant, or agent-operation interfaces.
 
 ## Core Rules for AI Agents

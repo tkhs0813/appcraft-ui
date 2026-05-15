@@ -1,10 +1,10 @@
 # Design Principles
 
-Agent UI is a UI component SDK that is easy for AI coding agents to use. It is **not** a UI kit for showing AI agents, and it is not centered on chat interfaces.
+Appcraft UI is a UI component SDK that is easy for AI coding agents to use. It is **not** a UI kit for showing AI agents, and it is not centered on chat interfaces.
 
 ## Product definition
 
-Agent UI provides polished Svelte components for normal application screens: forms, tables, settings, navigation, resource management, auth, billing, content, dashboards, and developer tools. AI-specific screens are allowed, but they are one category among many.
+Appcraft UI provides polished Svelte components for normal application screens: forms, tables, settings, navigation, resource management, auth, billing, content, dashboards, and developer tools. AI-specific screens are allowed, but they are one category among many.
 
 The user of the library should pass:
 

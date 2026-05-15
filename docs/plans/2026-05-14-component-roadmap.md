@@ -1,10 +1,10 @@
-# Agent UI Component Roadmap
+# Appcraft UI Component Roadmap
 
 > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.
 
 **Status:** Phase 0-6 implemented in the package surface; continue hardening depth and APIs over time.
 
-**Goal:** Build Agent UI into a practical component SDK for broad AI-built applications, not only SaaS/admin dashboards.
+**Goal:** Build Appcraft UI into a practical component SDK for broad AI-built applications, not only SaaS/admin dashboards.
 
 **Architecture:** Keep a small set of polished primitives and patterns, then prioritize higher-level product/application components that encode complete states and safe interactions. Components should accept data, semantic intent, and callbacks; the library owns layout, interaction polish, accessibility, and visual quality.
 
@@ -14,7 +14,7 @@
 
 ## Product Direction
 
-Agent UI should help agents build many kinds of apps:
+Appcraft UI should help agents build many kinds of apps:
 
 - Admin/dashboard apps
 - Developer tools
@@ -107,15 +107,15 @@ These should be the main differentiator. They prevent agents from composing comp
 
 ### Layer 4: Agent-facing intelligence
 
-These make Agent UI explicitly agent-friendly.
+These make Appcraft UI explicitly agent-friendly.
 
 - richer `componentMetadata`
 - component recipes
 - use-case to component mapping
 - forbidden pattern detector
-- `agent-ui describe <component>` CLI
-- `agent-ui rules` CLI
-- `agent-ui suggest --use-case "..."` CLI
+- `appcraft-ui describe <component>` CLI
+- `appcraft-ui rules` CLI
+- `appcraft-ui suggest --use-case "..."` CLI
 - demo state catalog
 - copy-paste prompt snippets for agents
 
@@ -254,9 +254,9 @@ Expected: all pass.
 
 **Features:**
 
-1. `agent-ui describe <component>`
-2. `agent-ui rules`
-3. `agent-ui suggest --use-case "..."`
+1. `appcraft-ui describe <component>`
+2. `appcraft-ui rules`
+3. `appcraft-ui suggest --use-case "..."`
 4. machine-readable recipes
 5. forbidden-pattern checks
 6. example state catalog

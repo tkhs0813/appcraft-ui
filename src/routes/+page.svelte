@@ -121,7 +121,7 @@
 </script>
 
 <svelte:head>
-	<title>Agent UI</title>
+	<title>Appcraft UI</title>
 	<meta
 		name="description"
 		content="Production-grade Svelte components for AI-built applications."
@@ -129,7 +129,7 @@
 </svelte:head>
 
 <AppShell
-	productName="Agent UI"
+	productName="Appcraft UI"
 	workspaceName="Acme Workspace"
 	userName="Ryo"
 	{navItems}
@@ -137,7 +137,7 @@
 >
 	<section class="demo aui-root">
 		<section class="hero">
-			<p class="eyebrow">Agent UI</p>
+			<p class="eyebrow">Appcraft UI</p>
 			<h1>Production-grade Svelte components for AI-built applications.</h1>
 			<p>
 				A constrained UI SDK with one polished theme, semantic props, built-in states, and
@@ -184,7 +184,7 @@
 				</div>
 				<div class="atom-row">
 					<IconButton label="Run agent" icon="▶" variant="primary" />
-					<CopyButton value="agent-ui" />
+					<CopyButton value="appcraft-ui" />
 					<Tooltip label="Keyboard shortcut atom"><KeyboardShortcut keys={['⌘', 'K']} /></Tooltip>
 				</div>
 			</div>
@@ -220,7 +220,7 @@
 				<div class="atom-card">
 					<Skeleton lines={2} /><Separator label="Artifact" /><CodeBlock
 						language="ts"
-						code={`import { Button } from 'agent-ui';`}
+						code={`import { Button } from 'appcraft-ui';`}
 					/>
 				</div>
 			</div>
@@ -368,7 +368,7 @@
 			<EmptyState
 				tone="brand"
 				title="No automations yet"
-				description="Create your first workflow and Agent UI will keep the empty state polished for every app."
+				description="Create your first workflow and Appcraft UI will keep the empty state polished for every app."
 				action={{ label: 'Create workflow', onClick: () => undefined }}
 			/>
 			<ErrorState
@@ -392,9 +392,9 @@
 <CommandPalette
 	open={commandPaletteOpen}
 	actions={[
-		{ id: 'describe', label: 'agent-ui describe ResourceList', hint: 'CLI' },
-		{ id: 'rules', label: 'agent-ui rules', hint: 'CLI' },
-		{ id: 'suggest', label: 'agent-ui suggest --use-case chat workspace', hint: 'CLI' }
+		{ id: 'describe', label: 'appcraft-ui describe ResourceList', hint: 'CLI' },
+		{ id: 'rules', label: 'appcraft-ui rules', hint: 'CLI' },
+		{ id: 'suggest', label: 'appcraft-ui suggest --use-case chat workspace', hint: 'CLI' }
 	]}
 	onSelect={() => (commandPaletteOpen = false)}
 	onClose={() => (commandPaletteOpen = false)}
