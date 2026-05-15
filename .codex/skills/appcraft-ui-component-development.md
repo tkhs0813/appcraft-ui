@@ -1,11 +1,11 @@
 ---
 name: appcraft-ui-component-development
-description: Use when adding, changing, reviewing, or documenting Appcraft UI components, metadata, recipes, or agent-facing APIs.
+description: Use when adding, changing, reviewing, or documenting Appcraft UI components, metadata, recipes, or agent-facing APIs with Codex.
 ---
 
-# Appcraft UI Component Development
+# Appcraft UI Component Development for Codex
 
-Use this skill when asked to add, change, review, or document Appcraft UI components, metadata, recipes, or agent-facing APIs.
+Use this guide when Codex is asked to add, change, review, or document Appcraft UI components, metadata, recipes, or agent-facing APIs.
 
 ## Goal
 
@@ -15,7 +15,7 @@ Do not treat this project as a copy-paste kit, Tailwind snippet library, or chat
 
 ## Default workflow
 
-1. Read `AGENTS.md` / `CLAUDE.md` first.
+1. Read `AGENTS.md` first. It is the source of truth for Codex in this repository.
 2. Inspect existing exports in `src/lib/index.ts`, metadata in `src/lib/metadata.ts`, recipes in `src/lib/recipes.ts`, and examples in `src/routes/+page.svelte` before designing new API.
 3. Choose the largest fitting abstraction first:
    - product component

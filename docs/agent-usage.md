@@ -10,7 +10,8 @@ This repository includes project-specific agent guidance for both Codex and Clau
 
 - `AGENTS.md` is the shared source of truth for coding agents, including Codex CLI.
 - `CLAUDE.md` mirrors `AGENTS.md` for Claude Code project context.
-- `CODEX.md` points Codex-oriented workflows back to `AGENTS.md` to avoid divergent rules.
+- `.codex/skills/appcraft-ui-component-development.md` gives Codex a project workflow guide that mirrors the Claude-side component-development skill.
+- `.codex/commands/validate.md` and `.codex/commands/plan-component.md` provide Codex-side reusable prompt/checklist files.
 - `.claude/skills/appcraft-ui-component-development.md` gives Claude Code a reusable project skill for component work.
 - `.claude/commands/validate.md` and `.claude/commands/plan-component.md` provide Claude Code slash-command checklists.
 

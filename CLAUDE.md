@@ -6,7 +6,8 @@ Important clarification: Appcraft UI is **not** primarily UI for AI agents. It i
 
 ## Agent Entry Points
 
-- **Codex CLI:** use this `AGENTS.md` as the source of truth.
+- **Codex CLI:** use this `AGENTS.md` as the source of truth, with Codex helper prompts in `.codex/`.
+- **Codex helper prompts:** `.codex/skills/appcraft-ui-component-development.md`, `.codex/commands/validate.md`, and `.codex/commands/plan-component.md` mirror the Claude-side workflow guidance.
 - **Claude Code:** use this file through `CLAUDE.md` and the project skill at `.claude/skills/appcraft-ui-component-development.md`.
 - **Claude slash commands:** project commands live in `.claude/commands/`:
   - `/validate` runs the required validation checklist.
@@ -69,6 +70,7 @@ When adding, removing, or renaming a public component, update all applicable fil
 - `docs/agent-usage.md`
 - `AGENTS.md`
 - `CLAUDE.md`
+- `.claude/` and `.codex/` guidance files when public rules change
 
 ## Svelte Rules
 
