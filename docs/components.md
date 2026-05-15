@@ -25,6 +25,9 @@ Use these when a screen needs small reusable controls.
 - `Popover`
 - `Drawer`
 - `Accordion`
+- `Input`
+- `Textarea`
+- `Table`
 
 ## Forms and settings
 
@@ -39,6 +42,7 @@ These should be the default for edit screens, onboarding, preferences, and accou
 - `NumberField`
 - `FormSection`
 - `SubmitBar`
+- `SettingsPage`
 - `ProfileSettings`
 - `WorkspaceSettings`
 
@@ -47,6 +51,7 @@ These should be the default for edit screens, onboarding, preferences, and accou
 These prevent AI agents from hand-rolling inconsistent shells and page structure.
 
 - `AppShell`
+- `DashboardLayout`
 - `PageHeader`
 - `Tabs`
 - `Breadcrumbs`
@@ -74,6 +79,7 @@ These are the core product components for internal tools, admin surfaces, CRUD a
 
 - `SearchFilterBar`
 - `DataTable`
+- `CrudPage`
 - `Pagination`
 - `ResourceList`
 - `ResourceGrid`
@@ -125,9 +131,9 @@ These are optional components for AI-powered applications. They should not defin
 
 When building a screen, choose the largest fitting component first:
 
-1. Product component, e.g. `UserManagement`, `BillingSettings`, `ResourceList`
+1. Product component, e.g. `CrudPage`, `DashboardLayout`, `SettingsPage`, `UserManagement`
 2. Pattern component, e.g. `DataTable`, `FormSection`, `PageHeader`
-3. Primitive component, e.g. `Button`, `TextField`, `Badge`
+3. Primitive component, e.g. `Button`, `Input`, `TextField`, `Badge`
 4. Raw markup only when no exported component fits
 
 This rule is what makes the library useful for AI coding agents: it reduces surface area and avoids accidental design drift.

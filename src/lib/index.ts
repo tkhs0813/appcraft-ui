@@ -44,6 +44,12 @@ export { default as DropdownMenu } from './components/DropdownMenu.svelte';
 export { default as Popover } from './components/Popover.svelte';
 export { default as Drawer } from './components/Drawer.svelte';
 export { default as Accordion } from './components/Accordion.svelte';
+export { default as Input } from './components/Input.svelte';
+export { default as Textarea } from './components/Textarea.svelte';
+export { default as Table } from './components/Table.svelte';
+export { default as DashboardLayout } from './components/DashboardLayout.svelte';
+export { default as SettingsPage } from './components/SettingsPage.svelte';
+export { default as CrudPage } from './components/CrudPage.svelte';
 export { default as ActivityFeed } from './components/ActivityFeed.svelte';
 export { default as Timeline } from './components/Timeline.svelte';
 export { default as CommandPalette } from './components/CommandPalette.svelte';
@@ -89,6 +95,8 @@ export type {
 	CardTone,
 	AgentStatus,
 	ComponentMetadata,
+	DashboardMetric,
+	DashboardPanel,
 	DialogAction,
 	DialogSize,
 	DrawerAction,
@@ -107,8 +115,12 @@ export type {
 	PageHeaderAction,
 	SearchFilter,
 	SelectOption,
+	SettingsPageItem,
+	SettingsPageSection,
 	StatusBadgeTone,
 	SubmitBarAction,
+	TableColumn,
+	TableRow,
 	TextInputType,
 	UserManagementRole,
 	UserManagementUser,

@@ -2,6 +2,20 @@ import type { ComponentRecipe } from './types.js';
 
 export const componentRecipes: ComponentRecipe[] = [
 	{
+		useCase: 'low-level HTML replacement primitives',
+		keywords: ['raw', 'input', 'textarea', 'static table', 'compact form', 'primitive field'],
+		components: ['Input', 'Textarea', 'Table'],
+		notes:
+			'Use low-level Appcraft primitives when a larger labeled field or interactive DataTable is too much, but avoid raw HTML controls and table chrome.'
+	},
+	{
+		useCase: 'complete application page scaffolds',
+		keywords: ['dashboard', 'settings page', 'crud page', 'admin page', 'overview page'],
+		components: ['DashboardLayout', 'SettingsPage', 'CrudPage'],
+		notes:
+			'Use product page components before composing dashboards, settings pages, or CRUD screens from loose sections and primitives.'
+	},
+	{
 		useCase: 'basic composition and overlays',
 		keywords: [
 			'card',

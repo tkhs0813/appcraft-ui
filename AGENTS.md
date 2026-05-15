@@ -63,11 +63,11 @@ Expected:
 
 ## Current Public Components
 
-- Foundation: `Button`, `IconButton`, `Badge`, `StatusBadge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `KeyboardShortcut`, `CodeBlock`, `CopyButton`, `Card`, `Dialog`, `DropdownMenu`, `Popover`, `Drawer`, `Accordion`.
-- Forms/settings: `TextField`, `TextareaField`, `SelectField`, `SwitchField`, `CheckboxField`, `RadioGroupField`, `NumberField`, `FormSection`, `SubmitBar`, `ProfileSettings`, `WorkspaceSettings`.
-- Layout/navigation: `AppShell`, `PageHeader`, `Tabs`, `Breadcrumbs`, `CommandPalette`, `CardGrid`, `MetricCard`.
+- Foundation: `Button`, `IconButton`, `Badge`, `StatusBadge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `KeyboardShortcut`, `CodeBlock`, `CopyButton`, `Card`, `Dialog`, `DropdownMenu`, `Popover`, `Drawer`, `Accordion`, `Input`, `Textarea`, `Table`.
+- Forms/settings: `TextField`, `TextareaField`, `SelectField`, `SwitchField`, `CheckboxField`, `RadioGroupField`, `NumberField`, `FormSection`, `SubmitBar`, `SettingsPage`, `ProfileSettings`, `WorkspaceSettings`.
+- Layout/navigation: `AppShell`, `DashboardLayout`, `PageHeader`, `Tabs`, `Breadcrumbs`, `CommandPalette`, `CardGrid`, `MetricCard`.
 - Feedback/state: `EmptyState`, `ErrorState`, `ConfirmDialog`, `Alert`, `Banner`, `ToastViewport`, `NotificationCenter`, `ActivityFeed`, `Timeline`.
-- Data/resource workflows: `SearchFilterBar`, `DataTable`, `Pagination`, `ResourceList`, `ResourceGrid`, `ResourceDetail`, `UserManagement`, `IntegrationList`, `ApiKeyManager`, `JobRunList`, `LogViewer`, `InspectorPanel`, `FileUploader`, `FileList`.
+- Data/resource workflows: `SearchFilterBar`, `DataTable`, `CrudPage`, `Pagination`, `ResourceList`, `ResourceGrid`, `ResourceDetail`, `UserManagement`, `IntegrationList`, `ApiKeyManager`, `JobRunList`, `LogViewer`, `InspectorPanel`, `FileUploader`, `FileList`.
 - Content/knowledge/media: `ContentEditorShell`, `DocumentList`, `KnowledgeBaseLayout`, `MediaGallery`, `CalendarList`, `KanbanBoard`.
 - Account/commerce: `SignInForm`, `SignUpForm`, `ForgotPasswordForm`, `ResetPasswordForm`, `BillingSettings`, `PricingTable`, `CheckoutSummary`, `OrderList`.
 - AI-aware optional components: `ChatPanel`, `ConversationList`, `PromptComposer`, `TokenMeter`, `AgentStatusIndicator`.

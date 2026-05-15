@@ -11,6 +11,7 @@
 		CodeBlock,
 		CopyButton,
 		IconButton,
+		Input,
 		KeyboardShortcut,
 		NumberField,
 		Popover,
@@ -27,7 +28,9 @@
 		ChatPanel,
 		CommandPalette,
 		ConfirmDialog,
+		CrudPage,
 		DataTable,
+		DashboardLayout,
 		Dialog,
 		Drawer,
 		DropdownMenu,
@@ -41,9 +44,12 @@
 		ResourceList,
 		SearchFilterBar,
 		SelectField,
+		SettingsPage,
 		StatusBadge,
 		SubmitBar,
 		SwitchField,
+		Table,
+		Textarea,
 		TextareaField,
 		TextField,
 		UserManagement,
@@ -51,6 +57,9 @@
 		type DataTableColumn,
 		type DataTableRow,
 		type SearchFilter,
+		type SettingsPageSection,
+		type TableColumn,
+		type TableRow,
 		type UserManagementUser
 	} from '$lib/index.js';
 
@@ -73,6 +82,10 @@
 	let resourceType = $state('all');
 	let page = $state(1);
 	let commandPaletteOpen = $state(false);
+	let compactName = $state('Compact primitive');
+	let compactNotes = $state(
+		'Use Input/Textarea/Table when a larger field or DataTable is too much.'
+	);
 
 	const filters: SearchFilter[] = [
 		{
@@ -102,6 +115,50 @@
 		{ id: 'r1', name: 'Research assistant', type: 'Workflow', status: 'Ready', updated: '2m ago' },
 		{ id: 'r2', name: 'Launch notes', type: 'Document', status: 'Draft', updated: '1h ago' },
 		{ id: 'r3', name: 'Evaluation set', type: 'Dataset', status: 'Ready', updated: 'Yesterday' }
+	];
+
+	const summaryColumns: TableColumn[] = [
+		{ key: 'component', label: 'Component' },
+		{ key: 'fit', label: 'Best fit' },
+		{ key: 'status', label: 'Status', kind: 'badge', tone: () => 'success' }
+	];
+
+	const summaryRows: TableRow[] = [
+		{ id: 'input', component: 'Input', fit: 'Compact custom field', status: 'Ready' },
+		{ id: 'textarea', component: 'Textarea', fit: 'Compact multiline editor', status: 'Ready' },
+		{ id: 'table', component: 'Table', fit: 'Static read-only data', status: 'Ready' }
+	];
+
+	const settingsSections: SettingsPageSection[] = [
+		{
+			id: 'workspace',
+			title: 'Workspace',
+			description: 'Semantic settings rows with status and save state.',
+			status: 'Saved',
+			tone: 'success',
+			items: [
+				{ id: 'name', label: 'Workspace name', description: 'Acme Workspace', value: 'Editable' },
+				{
+					id: 'visibility',
+					label: 'Visibility',
+					description: 'Controls who can access resources.',
+					value: 'Private'
+				}
+			]
+		},
+		{
+			id: 'automation',
+			title: 'Automation',
+			description: 'Keep product settings consistent without loose section markup.',
+			items: [
+				{
+					id: 'approval',
+					label: 'Approval gates',
+					description: 'Required for destructive tool calls.',
+					value: 'On'
+				}
+			]
+		}
 	];
 
 	const users: UserManagementUser[] = [
@@ -171,7 +228,7 @@
 		<div class="metric-grid">
 			<MetricCard
 				title="Components"
-				items={[{ id: 'components', title: '79 public exports', status: 'Ready', tone: 'success' }]}
+				items={[{ id: 'components', title: '85 public exports', status: 'Ready', tone: 'success' }]}
 			/>
 			<Alert
 				title="Agent guardrails"
@@ -291,6 +348,84 @@
 					/>
 				</div>
 			</Card>
+		</section>
+
+		<section class="primitive-product-panel" aria-label="Low-level and product page expansion">
+			<Card
+				meta="Both layers"
+				title="Low-level primitives + complete product pages"
+				description="Agents can now choose safe tiny controls or a whole page scaffold instead of raw HTML."
+			>
+				<div class="primitive-grid">
+					<div class="primitive-card">
+						<Input
+							ariaLabel="Compact primitive name"
+							value={compactName}
+							onInput={(value) => (compactName = value)}
+						/>
+						<Textarea
+							ariaLabel="Compact primitive notes"
+							value={compactNotes}
+							rows={3}
+							onInput={(value) => (compactNotes = value)}
+						/>
+						<Table caption="Low-level primitive fit" columns={summaryColumns} rows={summaryRows} />
+					</div>
+					<DashboardLayout
+						title="Overview page"
+						description="Use DashboardLayout before hand-rolling metric grids."
+						metrics={[
+							{ id: 'exports', label: 'Exports', value: '85', delta: '+6', tone: 'success' },
+							{ id: 'recipes', label: 'Recipes', value: '10', delta: 'Agent-ready', tone: 'brand' }
+						]}
+						panels={[
+							{
+								id: 'crud',
+								title: 'CRUD coverage',
+								description: 'Search, filter, table, actions, pagination.',
+								status: 'Ready',
+								tone: 'success'
+							},
+							{
+								id: 'settings',
+								title: 'Settings coverage',
+								description: 'Sections, rows, statuses, submit state.',
+								status: 'Ready',
+								tone: 'success'
+							}
+						]}
+					/>
+				</div>
+			</Card>
+			<div class="product-grid">
+				<SettingsPage
+					title="Product settings page"
+					description="A complete settings surface from semantic section data."
+					sections={settingsSections}
+					status="saved"
+					message="All demo settings are saved."
+				/>
+				<CrudPage
+					title="Resource CRUD page"
+					description="A full list-management page from columns, rows, filters, actions, and pagination."
+					columns={resourceColumns}
+					rows={resources}
+					{filters}
+					{query}
+					activeFilters={{ type: resourceType }}
+					resultCount={resources.length}
+					{page}
+					pageCount={4}
+					onQueryChange={(value) => (query = value)}
+					onFilterChange={(_, value) => (resourceType = value || 'all')}
+					onClear={() => {
+						query = '';
+						resourceType = 'all';
+					}}
+					onPageChange={(value) => (page = value)}
+					rowActions={[{ label: 'Open', onSelect: () => undefined }]}
+				/>
+			</div>
 		</section>
 
 		<PageHeader
@@ -573,6 +708,7 @@
 	}
 
 	.composition-panel,
+	.primitive-product-panel,
 	.atom-panel {
 		display: grid;
 		gap: 1rem;
@@ -615,13 +751,16 @@
 		gap: 0.65rem;
 	}
 
-	.atom-grid {
+	.atom-grid,
+	.primitive-grid,
+	.product-grid {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 1rem;
 	}
 
-	.atom-card {
+	.atom-card,
+	.primitive-card {
 		display: grid;
 		align-content: start;
 		gap: 0.85rem;
@@ -656,7 +795,10 @@
 		.form-grid,
 		.metric-grid,
 		.atom-grid,
-		.atom-panel-header {
+		.primitive-grid,
+		.product-grid,
+		.atom-panel-header,
+		.composition-grid {
 			grid-template-columns: 1fr;
 		}
 	}

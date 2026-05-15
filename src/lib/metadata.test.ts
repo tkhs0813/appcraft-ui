@@ -81,7 +81,13 @@ const publicComponentNames = [
 	'DropdownMenu',
 	'Popover',
 	'Drawer',
-	'Accordion'
+	'Accordion',
+	'Input',
+	'Textarea',
+	'Table',
+	'DashboardLayout',
+	'SettingsPage',
+	'CrudPage'
 ];
 
 describe('componentMetadata', () => {
@@ -198,5 +204,41 @@ describe('componentMetadata', () => {
 		expect(
 			componentMetadata.find((item) => item.name === 'DropdownMenu')?.forbiddenPatterns
 		).toContain('Do not recreate menu keyboard and action structure by hand.');
+	});
+
+	it('marks low-level HTML replacement primitives with safe guardrails', () => {
+		const lowLevelNames = ['Input', 'Textarea', 'Table'];
+
+		for (const name of lowLevelNames) {
+			const component = componentMetadata.find((item) => item.name === name);
+			expect(component?.category).toBe('primitive');
+			expect(component?.forbiddenPatterns).toContain('Do not pass custom CSS classes.');
+		}
+
+		expect(componentMetadata.find((item) => item.name === 'Input')?.forbiddenPatterns).toContain(
+			'Do not use raw inputs when a semantic Appcraft primitive fits.'
+		);
+		expect(componentMetadata.find((item) => item.name === 'Table')?.forbiddenPatterns).toContain(
+			'Do not hand-roll table chrome for static data.'
+		);
+	});
+
+	it('marks larger product page components with anti-composition guardrails', () => {
+		const dashboardLayout = componentMetadata.find((item) => item.name === 'DashboardLayout');
+		const settingsPage = componentMetadata.find((item) => item.name === 'SettingsPage');
+		const crudPage = componentMetadata.find((item) => item.name === 'CrudPage');
+
+		expect(dashboardLayout?.category).toBe('product');
+		expect(settingsPage?.category).toBe('product');
+		expect(crudPage?.category).toBe('product');
+		expect(dashboardLayout?.forbiddenPatterns).toContain(
+			'Do not compose dashboard pages from loose grids and metric cards.'
+		);
+		expect(settingsPage?.forbiddenPatterns).toContain(
+			'Do not compose settings pages from loose section markup.'
+		);
+		expect(crudPage?.forbiddenPatterns).toContain(
+			'Do not rebuild CRUD screens from raw filters, tables, and pagination.'
+		);
 	});
 });

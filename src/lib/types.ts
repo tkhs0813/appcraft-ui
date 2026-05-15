@@ -57,6 +57,54 @@ export type AccordionItem = {
 	disabled?: boolean;
 };
 
+export type TableRow = {
+	id: string;
+	[key: string]: unknown;
+};
+
+export type TableColumn = {
+	key: string;
+	label: string;
+	width?: string;
+	align?: 'left' | 'center' | 'right';
+	kind?: 'text' | 'badge';
+	format?: (value: unknown, row: TableRow) => string;
+	tone?: (value: unknown, row: TableRow) => StatusBadgeTone;
+};
+
+export type DashboardMetric = {
+	id: string;
+	label: string;
+	value: string;
+	description?: string;
+	delta?: string;
+	tone?: StatusBadgeTone;
+};
+
+export type DashboardPanel = {
+	id: string;
+	title: string;
+	description?: string;
+	status?: string;
+	tone?: StatusBadgeTone;
+};
+
+export type SettingsPageItem = {
+	id: string;
+	label: string;
+	description?: string;
+	value?: string;
+};
+
+export type SettingsPageSection = {
+	id: string;
+	title: string;
+	description?: string;
+	status?: string;
+	tone?: StatusBadgeTone;
+	items: SettingsPageItem[];
+};
+
 export type StatusBadgeTone = 'neutral' | 'brand' | 'success' | 'warning' | 'danger';
 
 export type DataTableRow = {

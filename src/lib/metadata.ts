@@ -927,5 +927,77 @@ export const componentMetadata: ComponentMetadata[] = [
 			'Do not rebuild disclosure lists from loose buttons and divs.',
 			'Use AccordionItem data and openIds state.'
 		]
+	},
+	{
+		name: 'Input',
+		category: 'primitive',
+		description:
+			'Low-level semantic input primitive with Appcraft styling, compact mode, invalid state, and callback.',
+		useCases: ['compact forms', 'inline filters', 'custom composed fields'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not use raw inputs when a semantic Appcraft primitive fits.',
+			'Prefer TextField when a visible label and help text are needed.'
+		]
+	},
+	{
+		name: 'Textarea',
+		category: 'primitive',
+		description:
+			'Low-level semantic multiline primitive with Appcraft styling, rows, invalid state, and callback.',
+		useCases: ['compact editors', 'prompt areas', 'custom composed text areas'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not use raw textareas when a semantic Appcraft primitive fits.',
+			'Prefer TextareaField when a visible label and help text are needed.'
+		]
+	},
+	{
+		name: 'Table',
+		category: 'primitive',
+		description:
+			'Static table primitive with Appcraft table chrome, caption, empty state, alignment, formatting, and badges.',
+		useCases: ['static data tables', 'summary tables', 'read-only comparisons'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not hand-roll table chrome for static data.',
+			'Use DataTable or CrudPage when sorting, actions, loading, or filters are needed.'
+		]
+	},
+	{
+		name: 'DashboardLayout',
+		category: 'product',
+		description:
+			'Complete dashboard page layout with heading actions, metrics, panels, and status badges.',
+		useCases: ['dashboard pages', 'admin overview', 'operations overview'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not compose dashboard pages from loose grids and metric cards.',
+			'Pass semantic metrics, panels, and actions.'
+		]
+	},
+	{
+		name: 'SettingsPage',
+		category: 'product',
+		description:
+			'Complete settings page with heading, semantic sections, setting rows, statuses, and submit state.',
+		useCases: ['settings pages', 'account settings', 'workspace preferences'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not compose settings pages from loose section markup.',
+			'Use semantic sections and built-in submit state.'
+		]
+	},
+	{
+		name: 'CrudPage',
+		category: 'product',
+		description:
+			'Complete CRUD page scaffold combining page header, search/filter bar, data table, loading/error/empty states, row actions, and pagination.',
+		useCases: ['CRUD admin pages', 'resource management', 'inventory screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild CRUD screens from raw filters, tables, and pagination.',
+			'Use semantic columns, rows, filters, row actions, and callbacks.'
+		]
 	}
 ];

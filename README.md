@@ -109,6 +109,8 @@ The current library includes primitives, form controls, page/application pattern
 
 The Atom Pack adds `IconButton`, `Badge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `CheckboxField`, `RadioGroupField`, `NumberField`, `CodeBlock`, `CopyButton`, `KeyboardShortcut`, `TokenMeter`, and `AgentStatusIndicator` for small safe UI composition.
 
+The basic and product page expansion adds low-level `Input`, `Textarea`, and `Table` primitives plus larger `DashboardLayout`, `SettingsPage`, and `CrudPage` components so agents can choose either safe small building blocks or complete application pages.
+
 ```bash
 appcraft-ui describe ResourceList
 appcraft-ui rules

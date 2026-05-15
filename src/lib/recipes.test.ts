@@ -17,5 +17,11 @@ describe('componentRecipes', () => {
 		expect(suggestComponents('agent token usage status with copyable code')).toEqual(
 			expect.arrayContaining(['TokenMeter', 'AgentStatusIndicator', 'CodeBlock', 'CopyButton'])
 		);
+		expect(suggestComponents('raw input textarea and static table for a compact form')).toEqual(
+			expect.arrayContaining(['Input', 'Textarea', 'Table'])
+		);
+		expect(suggestComponents('dashboard settings crud admin page')).toEqual(
+			expect.arrayContaining(['DashboardLayout', 'SettingsPage', 'CrudPage'])
+		);
 	});
 });
