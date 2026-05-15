@@ -4,6 +4,18 @@ Use these rules in AGENTS.md for apps that adopt Appcraft UI.
 
 Appcraft UI is not a chat UI or an AI-agent-control UI kit. It is a broad application component SDK that is easy for AI coding agents to use correctly.
 
+## This repository
+
+This repository includes project-specific agent guidance for both Codex and Claude Code:
+
+- `AGENTS.md` is the shared source of truth for coding agents, including Codex CLI.
+- `CLAUDE.md` mirrors `AGENTS.md` for Claude Code project context.
+- `CODEX.md` points Codex-oriented workflows back to `AGENTS.md` to avoid divergent rules.
+- `.claude/skills/appcraft-ui-component-development.md` gives Claude Code a reusable project skill for component work.
+- `.claude/commands/validate.md` and `.claude/commands/plan-component.md` provide Claude Code slash-command checklists.
+
+Keep these files synchronized whenever component lists, validation commands, or agent guardrails change.
+
 - Prefer `appcraft-ui` components for application UI.
 - Choose the largest fitting component first: product component, then pattern, then primitive, then raw markup only if no exported component fits.
 - Do not recreate buttons, forms, cards, dialogs, drawers, dropdown menus, popovers, accordions, user tables, page headers, settings sections, resource lists, or billing flows if Appcraft UI has a fitting component.

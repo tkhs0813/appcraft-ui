@@ -1,8 +1,17 @@
-# AGENTS.md
+# Appcraft UI Agent Rules
 
 This repository contains **Appcraft UI**, a production-grade Svelte component SDK for AI-built applications.
 
 Important clarification: Appcraft UI is **not** primarily UI for AI agents. It is a broad application UI library designed so AI coding agents can build normal product screens reliably.
+
+## Agent Entry Points
+
+- **Codex CLI:** use this `AGENTS.md` as the source of truth.
+- **Claude Code:** use this file through `CLAUDE.md` and the project skill at `.claude/skills/appcraft-ui-component-development.md`.
+- **Claude slash commands:** project commands live in `.claude/commands/`:
+  - `/validate` runs the required validation checklist.
+  - `/plan-component` plans a component/workflow slice before implementation.
+- Keep `AGENTS.md` and `CLAUDE.md` identical unless there is a specific reason to diverge.
 
 ## Product Direction
 
@@ -32,6 +41,35 @@ Appcraft UI is **not** a shadcn-style copy/paste kit. It is a package-based UI S
 - Keep component styling scoped and based on tokens from `src/lib/styles.css`.
 - Keep AI-facing metadata in `src/lib/metadata.ts` and recipes in `src/lib/recipes.ts` in sync with public components.
 
+## Change Workflow
+
+1. Inspect existing components, exports, metadata, recipes, docs, and demo examples before adding new APIs.
+2. Prefer extending an existing Appcraft abstraction over creating a new primitive.
+3. For new public components, update tests first where practical:
+   - `src/lib/metadata.test.ts`
+   - `src/lib/recipes.test.ts` when suggestions should change
+4. Implement the component and all synchronized public surfaces in the same change.
+5. Update documentation and agent rules when public usage, component lists, or guardrails change.
+6. Run the full validation sequence before finishing component/API changes.
+
+## Files That Must Stay in Sync
+
+When adding, removing, or renaming a public component, update all applicable files:
+
+- `src/lib/components/*`
+- `src/lib/types.ts`
+- `src/lib/index.ts`
+- `src/lib/metadata.ts`
+- `src/lib/recipes.ts`
+- `src/lib/metadata.test.ts`
+- `src/lib/recipes.test.ts`
+- `src/routes/+page.svelte`
+- `README.md`
+- `docs/components.md`
+- `docs/agent-usage.md`
+- `AGENTS.md`
+- `CLAUDE.md`
+
 ## Svelte Rules
 
 - Use Svelte 5 runes and typed `$props()`.
@@ -60,6 +98,13 @@ Expected:
 - Vitest passes.
 - `svelte-package` succeeds.
 - `publint` reports `All good!`.
+
+If only documentation or agent rules changed, run at least:
+
+```bash
+pnpm format
+pnpm lint
+```
 
 ## Current Public Components
 
