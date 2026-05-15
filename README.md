@@ -121,9 +121,26 @@ appcraft-ui suggest --use-case "settings page with billing and team members"
 
 ## Development
 
+This repository is a pnpm monorepo:
+
+```txt
+packages/ui      # publishable appcraft-ui package
+apps/catalog     # SvelteKit catalog/demo app deployed to GitHub Pages
+```
+
+Common commands:
+
 ```bash
 pnpm install
 pnpm check
 pnpm test
 pnpm build
+```
+
+Focused commands:
+
+```bash
+pnpm --filter appcraft-ui build
+pnpm --filter @appcraft-ui/catalog dev
+BASE_PATH=/appcraft-ui pnpm --filter @appcraft-ui/catalog build
 ```

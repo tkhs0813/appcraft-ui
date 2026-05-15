@@ -74,7 +74,7 @@ Do not expose raw visual implementation details unless there is a proven need.
 
 ### 5. Metadata is part of the product
 
-`src/lib/metadata.ts`, `src/lib/recipes.ts`, and the CLI are AI-facing APIs. They help coding agents choose components and avoid reimplementing UI. Keep them in sync with every public component.
+`packages/ui/src/lib/metadata.ts`, `packages/ui/src/lib/recipes.ts`, and the CLI are AI-facing APIs. They help coding agents choose components and avoid reimplementing UI. Keep them in sync with every public component.
 
 ### 6. Broad application coverage
 

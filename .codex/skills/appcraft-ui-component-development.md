@@ -16,23 +16,23 @@ Do not treat this project as a copy-paste kit, Tailwind snippet library, or chat
 ## Default workflow
 
 1. Read `AGENTS.md` first. It is the source of truth for Codex in this repository.
-2. Inspect existing exports in `src/lib/index.ts`, metadata in `src/lib/metadata.ts`, recipes in `src/lib/recipes.ts`, and examples in `src/routes/+page.svelte` before designing new API.
+2. Inspect existing exports in `packages/ui/src/lib/index.ts`, metadata in `packages/ui/src/lib/metadata.ts`, recipes in `packages/ui/src/lib/recipes.ts`, and examples in `apps/catalog/src/routes/+page.svelte` before designing new API.
 3. Choose the largest fitting abstraction first:
    - product component
    - page/pattern component
    - primitive component
    - raw markup only when no Appcraft component fits
 4. For new public components, update tests before implementation:
-   - `src/lib/metadata.test.ts`
-   - `src/lib/recipes.test.ts` when component selection should change
+   - `packages/ui/src/lib/metadata.test.ts`
+   - `packages/ui/src/lib/recipes.test.ts` when component selection should change
 5. Implement with Svelte 5 runes and typed `$props()`.
 6. Update all public surfaces in the same change:
-   - component file in `src/lib/components/`
-   - supporting types in `src/lib/types.ts`
-   - exports in `src/lib/index.ts`
-   - metadata in `src/lib/metadata.ts`
-   - recipes in `src/lib/recipes.ts` when applicable
-   - demo in `src/routes/+page.svelte`
+   - component file in `packages/ui/src/lib/components/`
+   - supporting types in `packages/ui/src/lib/types.ts`
+   - exports in `packages/ui/src/lib/index.ts`
+   - metadata in `packages/ui/src/lib/metadata.ts`
+   - recipes in `packages/ui/src/lib/recipes.ts` when applicable
+   - demo in `apps/catalog/src/routes/+page.svelte`
    - README/docs when public usage changes
    - `AGENTS.md`, `CLAUDE.md`, `.claude/`, and `.codex/` when public component lists or rules change
 7. Run validation before finishing:
@@ -48,12 +48,12 @@ Do not treat this project as a copy-paste kit, Tailwind snippet library, or chat
 - Do not expose arbitrary `class` pass-through props unless explicitly requested.
 - Do not introduce multi-theme support or dark mode unless explicitly requested.
 - Do not add external UI/headless libraries such as bits-ui, Melt UI, Radix, Ark UI, or Floating UI unless explicitly requested.
-- Keep styling scoped and based on tokens from `src/lib/styles.css`.
+- Keep styling scoped and based on tokens from `packages/ui/src/lib/styles.css`.
 - Use keyed `{#each}` blocks.
 - Prefer callback props over mutating props.
 - Keep accessible labels for icon-only or ambiguous controls.
 - Use explicit `.js` extensions for relative TypeScript imports in library code.
-- Avoid SvelteKit-only `$app/*` imports inside `src/lib`.
+- Avoid SvelteKit-only `$app/*` imports inside `packages/ui/src/lib`.
 
 ## Metadata and recipes are product API
 

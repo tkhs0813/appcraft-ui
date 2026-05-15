@@ -1,0 +1,53 @@
+{
+	"name": "appcraft-ui",
+	"version": "0.0.1",
+	"description": "Production-grade Svelte components for AI-built applications.",
+	"license": "MIT",
+	"scripts": {
+		"build": "pnpm prepack",
+		"prepare": "svelte-kit sync || echo ''",
+		"prepack": "svelte-kit sync && svelte-package && publint",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"test:unit": "vitest",
+		"test": "pnpm test:unit -- --run"
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		},
+		"./styles.css": "./dist/styles.css",
+		"./cli": {
+			"types": "./dist/cli.d.ts",
+			"default": "./dist/cli.js"
+		}
+	},
+	"peerDependencies": {
+		"svelte": "^5.0.0"
+	},
+	"keywords": [
+		"svelte",
+		"ui",
+		"components",
+		"ai-apps",
+		"component-sdk",
+		"ai-built-apps",
+		"application-ui",
+		"ai-agents"
+	],
+	"bin": {
+		"appcraft-ui": "./dist/cli.js"
+	}
+}

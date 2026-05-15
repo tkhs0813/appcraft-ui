@@ -6,13 +6,17 @@ const base = dev ? '' : process.env.BASE_PATH || '';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	compilerOptions: {
-		// Force runes mode for the project, except for libraries. Can be removed in svelte 6.
+		// Force runes mode for the catalog, except for libraries.
 		runes: ({ filename }) => (filename.split(/[/\\]/).includes('node_modules') ? undefined : true)
 	},
 	kit: {
 		adapter: adapter({
 			fallback: '404.html'
 		}),
+		alias: {
+			'appcraft-ui/styles.css': '../../packages/ui/src/lib/styles.css',
+			'appcraft-ui': '../../packages/ui/src/lib/index.ts'
+		},
 		paths: {
 			base
 		}

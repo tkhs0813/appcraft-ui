@@ -7,14 +7,14 @@ Use this checklist:
 3. Prefer extending an existing product/pattern component over adding small primitives.
 4. Define semantic props, built-in states, callbacks, and accessibility behavior.
 5. List every synchronized file that must change:
-   - `src/lib/components/*`
-   - `src/lib/types.ts`
-   - `src/lib/index.ts`
-   - `src/lib/metadata.ts`
-   - `src/lib/recipes.ts`
-   - `src/lib/metadata.test.ts`
-   - `src/lib/recipes.test.ts`
-   - `src/routes/+page.svelte`
+   - `packages/ui/src/lib/components/*`
+   - `packages/ui/src/lib/types.ts`
+   - `packages/ui/src/lib/index.ts`
+   - `packages/ui/src/lib/metadata.ts`
+   - `packages/ui/src/lib/recipes.ts`
+   - `packages/ui/src/lib/metadata.test.ts`
+   - `packages/ui/src/lib/recipes.test.ts`
+   - `apps/catalog/src/routes/+page.svelte`
    - README/docs
    - `AGENTS.md` and `CLAUDE.md`
 6. Start with failing tests for metadata/recipes when adding public components.

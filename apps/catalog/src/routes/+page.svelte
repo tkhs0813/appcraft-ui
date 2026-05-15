@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../lib/styles.css';
+	import 'appcraft-ui/styles.css';
 	import { resolve } from '$app/paths';
 	import {
 		Accordion,
@@ -80,7 +80,7 @@
 		type TableColumn,
 		type TableRow,
 		type UserManagementUser
-	} from '$lib/index.js';
+	} from 'appcraft-ui';
 
 	const navItems: AppShellNavItem[] = [
 		{ label: 'Demo', href: resolve('/'), icon: '⌘', current: true },

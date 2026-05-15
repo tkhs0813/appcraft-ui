@@ -1,7 +1,7 @@
 <script lang="ts">
-	import '../../lib/styles.css';
+	import 'appcraft-ui/styles.css';
 	import { resolve } from '$app/paths';
-	import { componentMetadata, componentRecipes } from '$lib/index.js';
+	import { componentMetadata, componentRecipes } from 'appcraft-ui';
 
 	let query = $state('');
 	let category = $state('all');

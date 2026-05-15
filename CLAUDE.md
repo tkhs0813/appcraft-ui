@@ -14,6 +14,12 @@ Important clarification: Appcraft UI is **not** primarily UI for AI agents. It i
   - `/plan-component` plans a component/workflow slice before implementation.
 - Keep `AGENTS.md` and `CLAUDE.md` identical unless there is a specific reason to diverge.
 
+## Workspace Layout
+
+- `packages/ui` contains the publishable `appcraft-ui` package: components, styles, metadata, recipes, CLI, package tests, and package build config.
+- `apps/catalog` contains the SvelteKit catalog/demo app deployed to GitHub Pages. It imports Appcraft UI through the package-facing `appcraft-ui` entrypoint aliases.
+- Root scripts orchestrate workspace validation with pnpm filters.
+
 ## Product Direction
 
 Appcraft UI is **not** a shadcn-style copy/paste kit. It is a package-based UI SDK.
@@ -27,7 +33,7 @@ Appcraft UI is **not** a shadcn-style copy/paste kit. It is a package-based UI S
 
 ## Core Rules for AI Agents
 
-- Prefer components exported from `src/lib/index.ts`.
+- Prefer components exported from `packages/ui/src/lib/index.ts`.
 - Choose the largest fitting component first: product component, then pattern, then primitive, then raw markup only if needed.
 - Do not add arbitrary `class` pass-through props to public components unless explicitly requested.
 - Do not introduce multi-theme support yet.
@@ -39,16 +45,16 @@ Appcraft UI is **not** a shadcn-style copy/paste kit. It is a package-based UI S
 - Use semantic props such as `variant`, `size`, `tone`, `status`, `loading`, `error`, data arrays, and callbacks.
 - Use built-in loading, empty, error, dirty/saving/saved, and destructive-action states.
 - Keep public component APIs small and hard to misuse.
-- Keep component styling scoped and based on tokens from `src/lib/styles.css`.
-- Keep AI-facing metadata in `src/lib/metadata.ts` and recipes in `src/lib/recipes.ts` in sync with public components.
+- Keep component styling scoped and based on tokens from `packages/ui/src/lib/styles.css`.
+- Keep AI-facing metadata in `packages/ui/src/lib/metadata.ts` and recipes in `packages/ui/src/lib/recipes.ts` in sync with public components.
 
 ## Change Workflow
 
 1. Inspect existing components, exports, metadata, recipes, docs, and demo examples before adding new APIs.
 2. Prefer extending an existing Appcraft abstraction over creating a new primitive.
 3. For new public components, update tests first where practical:
-   - `src/lib/metadata.test.ts`
-   - `src/lib/recipes.test.ts` when suggestions should change
+   - `packages/ui/src/lib/metadata.test.ts`
+   - `packages/ui/src/lib/recipes.test.ts` when suggestions should change
 4. Implement the component and all synchronized public surfaces in the same change.
 5. Update documentation and agent rules when public usage, component lists, or guardrails change.
 6. Run the full validation sequence before finishing component/API changes.
@@ -57,14 +63,15 @@ Appcraft UI is **not** a shadcn-style copy/paste kit. It is a package-based UI S
 
 When adding, removing, or renaming a public component, update all applicable files:
 
-- `src/lib/components/*`
-- `src/lib/types.ts`
-- `src/lib/index.ts`
-- `src/lib/metadata.ts`
-- `src/lib/recipes.ts`
-- `src/lib/metadata.test.ts`
-- `src/lib/recipes.test.ts`
-- `src/routes/+page.svelte`
+- `packages/ui/src/lib/components/*`
+- `packages/ui/src/lib/types.ts`
+- `packages/ui/src/lib/index.ts`
+- `packages/ui/src/lib/metadata.ts`
+- `packages/ui/src/lib/recipes.ts`
+- `packages/ui/src/lib/metadata.test.ts`
+- `packages/ui/src/lib/recipes.test.ts`
+- `apps/catalog/src/routes/+page.svelte`
+- `apps/catalog/src/routes/components/+page.svelte`
 - `README.md`
 - `docs/components.md`
 - `docs/agent-usage.md`
@@ -78,7 +85,7 @@ When adding, removing, or renaming a public component, update all applicable fil
 - Use keyed `{#each}` blocks.
 - Prefer callback props over mutating props.
 - Use explicit `.js` extensions for relative TypeScript imports in library code.
-- Avoid SvelteKit-specific `$app/*` imports inside `src/lib`; this package should remain usable as a Svelte library.
+- Avoid SvelteKit-specific `$app/*` imports inside `packages/ui/src/lib`; this package should remain usable as a Svelte library.
 - Run the Svelte autofixer when writing or significantly changing Svelte components.
 
 ## Validation
@@ -118,7 +125,7 @@ pnpm lint
 - Content/knowledge/media: `ContentEditorShell`, `DocumentList`, `KnowledgeBaseLayout`, `MediaGallery`, `CalendarList`, `KanbanBoard`.
 - Account/commerce: `SignInForm`, `SignUpForm`, `ForgotPasswordForm`, `ResetPasswordForm`, `BillingSettings`, `PricingTable`, `CheckoutSummary`, `OrderList`.
 - AI-aware optional components: `ChatPanel`, `ConversationList`, `PromptComposer`, `TokenMeter`, `AgentStatusIndicator`.
-- Agent-facing helpers exist in `src/lib/recipes.ts` and `src/lib/cli.ts`; keep recipes, CLI output, metadata, and public exports in sync.
+- Agent-facing helpers exist in `packages/ui/src/lib/recipes.ts` and `src/lib/cli.ts`; keep recipes, CLI output, metadata, and public exports in sync.
 
 ## Good API Example
 
