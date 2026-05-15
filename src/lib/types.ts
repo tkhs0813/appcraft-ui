@@ -30,6 +30,33 @@ export type SelectOption = {
 export type FormSectionAction = ActionConfig;
 export type SubmitBarAction = ActionConfig;
 
+export type CardTone = 'default' | 'brand' | 'success' | 'warning' | 'danger';
+export type CardAction = ActionConfig & { variant?: ButtonVariant };
+
+export type DialogSize = 'sm' | 'md' | 'lg';
+export type DialogAction = ActionConfig & { variant?: ButtonVariant };
+
+export type DrawerSide = 'left' | 'right';
+export type DrawerAction = DialogAction;
+
+export type DropdownMenuItem = {
+	id: string;
+	label: string;
+	description?: string;
+	shortcut?: string;
+	tone?: 'default' | 'danger';
+	disabled?: boolean;
+	onSelect?: (id: string) => void;
+};
+
+export type AccordionItem = {
+	id: string;
+	title: string;
+	description?: string;
+	content: string;
+	disabled?: boolean;
+};
+
 export type StatusBadgeTone = 'neutral' | 'brand' | 'success' | 'warning' | 'danger';
 
 export type DataTableRow = {

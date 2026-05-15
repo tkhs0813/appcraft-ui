@@ -2,6 +2,23 @@ import type { ComponentRecipe } from './types.js';
 
 export const componentRecipes: ComponentRecipe[] = [
 	{
+		useCase: 'basic composition and overlays',
+		keywords: [
+			'card',
+			'dialog',
+			'modal',
+			'drawer',
+			'dropdown',
+			'menu',
+			'popover',
+			'accordion',
+			'disclosure'
+		],
+		components: ['Card', 'Dialog', 'Drawer', 'DropdownMenu', 'Popover', 'Accordion'],
+		notes:
+			'Use basic composition primitives for cards, modal overlays, side panels, menus, popovers, and progressive disclosure instead of loose divs and bespoke JS.'
+	},
+	{
 		useCase: 'settings and account screens',
 		keywords: ['settings', 'profile', 'workspace', 'account', 'preferences'],
 		components: [

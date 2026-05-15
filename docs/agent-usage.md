@@ -6,7 +6,7 @@ Appcraft UI is not a chat UI or an AI-agent-control UI kit. It is a broad applic
 
 - Prefer `appcraft-ui` components for application UI.
 - Choose the largest fitting component first: product component, then pattern, then primitive, then raw markup only if no exported component fits.
-- Do not recreate buttons, forms, dialogs, user tables, page headers, settings sections, resource lists, or billing flows if Appcraft UI has a fitting component.
+- Do not recreate buttons, forms, cards, dialogs, drawers, dropdown menus, popovers, accordions, user tables, page headers, settings sections, resource lists, or billing flows if Appcraft UI has a fitting component.
 - Do not pass arbitrary CSS classes to Appcraft UI components.
 - Use semantic props such as `variant`, `tone`, `size`, `state`, status fields, data arrays, and callbacks.
 - Preserve the default Appcraft UI theme.
@@ -19,4 +19,4 @@ Appcraft UI is not a chat UI or an AI-agent-control UI kit. It is a broad applic
 - For auth, billing, pricing, checkout, and orders, use provider-agnostic callbacks in Appcraft UI components; do not embed provider logic in UI.
 - Use AI-aware components such as `ChatPanel`, `PromptComposer`, `TokenMeter`, and `AgentStatusIndicator` only when the application actually needs AI-specific surfaces.
 - Use `appcraft-ui describe`, `appcraft-ui rules`, and `appcraft-ui suggest --use-case "..."` when an agent needs component selection guidance.
-- Atom Pack primitives cover small reusable surfaces: `IconButton`, `Badge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `CheckboxField`, `RadioGroupField`, `NumberField`, `CodeBlock`, `CopyButton`, `KeyboardShortcut`, `TokenMeter`, and `AgentStatusIndicator`. Prefer these atoms over raw HTML when composing new patterns.
+- Atom Pack and basic composition primitives cover small reusable surfaces: `IconButton`, `Badge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `CheckboxField`, `RadioGroupField`, `NumberField`, `CodeBlock`, `CopyButton`, `KeyboardShortcut`, `Card`, `Dialog`, `DropdownMenu`, `Popover`, `Drawer`, `Accordion`, `TokenMeter`, and `AgentStatusIndicator`. Prefer these primitives over raw HTML when composing new patterns.

@@ -19,6 +19,12 @@ Use these when a screen needs small reusable controls.
 - `KeyboardShortcut`
 - `CodeBlock`
 - `CopyButton`
+- `Card`
+- `Dialog`
+- `DropdownMenu`
+- `Popover`
+- `Drawer`
+- `Accordion`
 
 ## Forms and settings
 

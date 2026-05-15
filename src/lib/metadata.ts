@@ -855,5 +855,77 @@ export const componentMetadata: ComponentMetadata[] = [
 			'Do not rebuild this atom from loose HTML when this semantic primitive fits.',
 			'Use semantic props and callbacks instead of styling escape hatches.'
 		]
+	},
+	{
+		name: 'Card',
+		category: 'primitive',
+		description:
+			'Composable content card with semantic tone, header, actions, body, and footer slots.',
+		useCases: ['settings cards', 'dashboard cards', 'content panels'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild card chrome from loose divs.',
+			'Use semantic title, description, tone, actions, and footer props.'
+		]
+	},
+	{
+		name: 'Dialog',
+		category: 'primitive',
+		description:
+			'General modal dialog with semantic title, description, size, actions, close, backdrop, and escape handling.',
+		useCases: ['modal forms', 'detail previews', 'high-attention workflows'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not hand-roll modal overlays.',
+			'Use open, onClose, action props, and snippets for modal content.'
+		]
+	},
+	{
+		name: 'DropdownMenu',
+		category: 'primitive',
+		description:
+			'Action menu with semantic items, disabled states, dangerous item tone, shortcuts, and escape handling.',
+		useCases: ['toolbar menus', 'row actions', 'compact action groups'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not recreate menu keyboard and action structure by hand.',
+			'Use DropdownMenuItem data and callbacks.'
+		]
+	},
+	{
+		name: 'Popover',
+		category: 'primitive',
+		description:
+			'Small anchored disclosure surface with trigger label, title, description, placement, and content snippet.',
+		useCases: ['inline help', 'quick filters', 'compact previews'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild anchored disclosure panels manually.',
+			'Use title, description, placement, and snippet content.'
+		]
+	},
+	{
+		name: 'Drawer',
+		category: 'primitive',
+		description:
+			'Side panel drawer with title, description, actions, close, backdrop, and escape handling.',
+		useCases: ['edit panels', 'inspectors', 'mobile-friendly side panels'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not hand-roll side-panel overlays.',
+			'Use side, open, onClose, action props, and snippets.'
+		]
+	},
+	{
+		name: 'Accordion',
+		category: 'primitive',
+		description:
+			'Accessible collapsible section list with controlled open IDs, single or multiple expansion, and disabled items.',
+		useCases: ['FAQ sections', 'settings groups', 'progressive disclosure'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild disclosure lists from loose buttons and divs.',
+			'Use AccordionItem data and openIds state.'
+		]
 	}
 ];

@@ -11,6 +11,9 @@ describe('componentRecipes', () => {
 		expect(suggestComponents('pricing and checkout flow')).toEqual(
 			expect.arrayContaining(['PricingTable', 'CheckoutSummary'])
 		);
+		expect(suggestComponents('settings card with dialog drawer dropdown and accordion')).toEqual(
+			expect.arrayContaining(['Card', 'Dialog', 'Drawer', 'DropdownMenu', 'Accordion'])
+		);
 		expect(suggestComponents('agent token usage status with copyable code')).toEqual(
 			expect.arrayContaining(['TokenMeter', 'AgentStatusIndicator', 'CodeBlock', 'CopyButton'])
 		);

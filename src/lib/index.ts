@@ -38,6 +38,12 @@ export { default as Tabs } from './components/Tabs.svelte';
 export { default as Breadcrumbs } from './components/Breadcrumbs.svelte';
 export { default as CardGrid } from './components/CardGrid.svelte';
 export { default as MetricCard } from './components/MetricCard.svelte';
+export { default as Card } from './components/Card.svelte';
+export { default as Dialog } from './components/Dialog.svelte';
+export { default as DropdownMenu } from './components/DropdownMenu.svelte';
+export { default as Popover } from './components/Popover.svelte';
+export { default as Drawer } from './components/Drawer.svelte';
+export { default as Accordion } from './components/Accordion.svelte';
 export { default as ActivityFeed } from './components/ActivityFeed.svelte';
 export { default as Timeline } from './components/Timeline.svelte';
 export { default as CommandPalette } from './components/CommandPalette.svelte';
@@ -74,12 +80,20 @@ export { default as OrderList } from './components/OrderList.svelte';
 export { componentMetadata } from './metadata.js';
 export { componentRecipes, suggestComponents } from './recipes.js';
 export type {
+	AccordionItem,
 	ActionConfig,
 	AppShellNavItem,
 	ButtonSize,
 	ButtonVariant,
+	CardAction,
+	CardTone,
 	AgentStatus,
 	ComponentMetadata,
+	DialogAction,
+	DialogSize,
+	DrawerAction,
+	DrawerSide,
+	DropdownMenuItem,
 	ConfirmDialogTone,
 	DataTableColumn,
 	DataTableRow,

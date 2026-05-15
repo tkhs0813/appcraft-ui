@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../lib/styles.css';
 	import {
+		Accordion,
 		Alert,
 		AppShell,
 		AgentStatusIndicator,
@@ -12,6 +13,7 @@
 		IconButton,
 		KeyboardShortcut,
 		NumberField,
+		Popover,
 		ProgressBar,
 		RadioGroupField,
 		Separator,
@@ -20,11 +22,15 @@
 		TokenMeter,
 		Tooltip,
 		Banner,
+		Card,
 		Button,
 		ChatPanel,
 		CommandPalette,
 		ConfirmDialog,
 		DataTable,
+		Dialog,
+		Drawer,
+		DropdownMenu,
 		EmptyState,
 		ErrorState,
 		FormSection,
@@ -56,6 +62,9 @@
 	];
 
 	let showDialog = $state(false);
+	let showGeneralDialog = $state(false);
+	let showDrawer = $state(false);
+	let openAccordionIds = $state(['usage']);
 	let workspaceName = $state('Acme Workspace');
 	let workspaceDescription = $state('A workspace for AI-built application experiments.');
 	let visibility = $state('private');
@@ -162,7 +171,7 @@
 		<div class="metric-grid">
 			<MetricCard
 				title="Components"
-				items={[{ id: 'components', title: '73 public exports', status: 'Ready', tone: 'success' }]}
+				items={[{ id: 'components', title: '79 public exports', status: 'Ready', tone: 'success' }]}
 			/>
 			<Alert
 				title="Agent guardrails"
@@ -224,6 +233,64 @@
 					/>
 				</div>
 			</div>
+		</section>
+
+		<section class="composition-panel" aria-label="Basic composition examples">
+			<Card
+				meta="Basic composition"
+				title="Cards, overlays, menus, popovers, and disclosure"
+				description="These primitives fill the common gaps that make agents hand-roll fragile UI."
+				tone="brand"
+				actions={[{ label: 'Open dialog', onClick: () => (showGeneralDialog = true) }]}
+				footer="Use these before raw divs when building new app surfaces."
+			>
+				<div class="composition-grid">
+					<div class="composition-actions">
+						<DropdownMenu
+							label="Actions"
+							align="start"
+							items={[
+								{ id: 'edit', label: 'Edit project', description: 'Open details', shortcut: 'E' },
+								{ id: 'duplicate', label: 'Duplicate', shortcut: 'D' },
+								{ id: 'delete', label: 'Delete', tone: 'danger', shortcut: '⌫' }
+							]}
+						/>
+						<Popover
+							triggerLabel="Usage notes"
+							title="Popover"
+							description="For compact help, quick filters, and previews without introducing custom floating UI."
+							placement="bottom-start"
+						>
+							<p class="composition-note">
+								Semantic trigger, title, description, placement, and snippet content.
+							</p>
+						</Popover>
+						<Button variant="secondary" label="Open drawer" onClick={() => (showDrawer = true)} />
+					</div>
+
+					<Accordion
+						items={[
+							{
+								id: 'usage',
+								title: 'When should agents use Card?',
+								description: 'Reusable sections and panels',
+								content:
+									'Use Card for bounded content regions with title, description, actions, semantic tone, body, and footer.'
+							},
+							{
+								id: 'overlay',
+								title: 'When should agents use Dialog or Drawer?',
+								description: 'Focused modal or side-panel workflows',
+								content:
+									'Use Dialog for modal tasks and Drawer for side-panel editing or inspection instead of rebuilding overlays.'
+							}
+						]}
+						openIds={openAccordionIds}
+						allowMultiple
+						onOpenChange={(ids) => (openAccordionIds = ids)}
+					/>
+				</div>
+			</Card>
 		</section>
 
 		<PageHeader
@@ -389,6 +456,33 @@
 	onCancel={() => (showDialog = false)}
 />
 
+<Dialog
+	open={showGeneralDialog}
+	title="General dialog"
+	description="Use Dialog for modal forms, previews, and high-attention workflows without hand-rolled overlays."
+	primaryAction={{ label: 'Save changes', onClick: () => (showGeneralDialog = false) }}
+	secondaryAction={{ label: 'Cancel', onClick: () => (showGeneralDialog = false) }}
+	onClose={() => (showGeneralDialog = false)}
+>
+	<p class="composition-note">
+		Dialog supports semantic sizing, actions, backdrop close, Escape handling, and snippet content.
+	</p>
+</Dialog>
+
+<Drawer
+	open={showDrawer}
+	title="Inspector drawer"
+	description="Use Drawer for edit panels, inspectors, and side-panel workflows."
+	primaryAction={{ label: 'Apply', onClick: () => (showDrawer = false) }}
+	secondaryAction={{ label: 'Close', onClick: () => (showDrawer = false) }}
+	onClose={() => (showDrawer = false)}
+>
+	<Alert
+		title="Drawer content"
+		items={[{ id: 'drawer', title: 'Provider-agnostic content', status: 'Ready', tone: 'success' }]}
+	/>
+</Drawer>
+
 <CommandPalette
 	open={commandPaletteOpen}
 	actions={[
@@ -478,6 +572,7 @@
 		flex: 1 1 22rem;
 	}
 
+	.composition-panel,
 	.atom-panel {
 		display: grid;
 		gap: 1rem;
@@ -534,6 +629,27 @@
 		border-radius: var(--aui-radius-lg);
 		background: var(--aui-surface-subtle);
 		padding: 1rem;
+	}
+
+	.composition-grid {
+		display: grid;
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		gap: 1rem;
+		align-items: start;
+	}
+
+	.composition-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		align-items: center;
+	}
+
+	.composition-note {
+		margin: 0;
+		color: var(--aui-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.55;
 	}
 
 	@media (max-width: 720px) {

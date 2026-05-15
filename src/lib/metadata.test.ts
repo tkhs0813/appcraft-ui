@@ -75,7 +75,13 @@ const publicComponentNames = [
 	'CopyButton',
 	'KeyboardShortcut',
 	'TokenMeter',
-	'AgentStatusIndicator'
+	'AgentStatusIndicator',
+	'Card',
+	'Dialog',
+	'DropdownMenu',
+	'Popover',
+	'Drawer',
+	'Accordion'
 ];
 
 describe('componentMetadata', () => {
@@ -175,5 +181,22 @@ describe('componentMetadata', () => {
 			expect(atom?.category).toBe('primitive');
 			expect(atom?.forbiddenPatterns).toContain('Do not pass custom CSS classes.');
 		}
+	});
+
+	it('marks basic composition components with anti-reimplementation guardrails', () => {
+		const basicNames = ['Card', 'Dialog', 'DropdownMenu', 'Popover', 'Drawer', 'Accordion'];
+
+		for (const name of basicNames) {
+			const component = componentMetadata.find((item) => item.name === name);
+			expect(component?.category).toBe('primitive');
+			expect(component?.forbiddenPatterns).toContain('Do not pass custom CSS classes.');
+		}
+
+		expect(componentMetadata.find((item) => item.name === 'Dialog')?.forbiddenPatterns).toContain(
+			'Do not hand-roll modal overlays.'
+		);
+		expect(
+			componentMetadata.find((item) => item.name === 'DropdownMenu')?.forbiddenPatterns
+		).toContain('Do not recreate menu keyboard and action structure by hand.');
 	});
 });

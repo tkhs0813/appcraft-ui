@@ -63,7 +63,7 @@ Expected:
 
 ## Current Public Components
 
-- Foundation: `Button`, `IconButton`, `Badge`, `StatusBadge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `KeyboardShortcut`, `CodeBlock`, `CopyButton`.
+- Foundation: `Button`, `IconButton`, `Badge`, `StatusBadge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `KeyboardShortcut`, `CodeBlock`, `CopyButton`, `Card`, `Dialog`, `DropdownMenu`, `Popover`, `Drawer`, `Accordion`.
 - Forms/settings: `TextField`, `TextareaField`, `SelectField`, `SwitchField`, `CheckboxField`, `RadioGroupField`, `NumberField`, `FormSection`, `SubmitBar`, `ProfileSettings`, `WorkspaceSettings`.
 - Layout/navigation: `AppShell`, `PageHeader`, `Tabs`, `Breadcrumbs`, `CommandPalette`, `CardGrid`, `MetricCard`.
 - Feedback/state: `EmptyState`, `ErrorState`, `ConfirmDialog`, `Alert`, `Banner`, `ToastViewport`, `NotificationCenter`, `ActivityFeed`, `Timeline`.
