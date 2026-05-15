@@ -63,11 +63,11 @@ Expected:
 
 ## Current Public Components
 
-- Foundation: `Button`, `IconButton`, `Badge`, `StatusBadge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `KeyboardShortcut`, `CodeBlock`, `CopyButton`, `Card`, `Dialog`, `DropdownMenu`, `Popover`, `Drawer`, `Accordion`, `Input`, `Textarea`, `Table`.
-- Forms/settings: `TextField`, `TextareaField`, `SelectField`, `SwitchField`, `CheckboxField`, `RadioGroupField`, `NumberField`, `FormSection`, `SubmitBar`, `SettingsPage`, `ProfileSettings`, `WorkspaceSettings`.
-- Layout/navigation: `AppShell`, `DashboardLayout`, `PageHeader`, `Tabs`, `Breadcrumbs`, `CommandPalette`, `CardGrid`, `MetricCard`.
-- Feedback/state: `EmptyState`, `ErrorState`, `ConfirmDialog`, `Alert`, `Banner`, `ToastViewport`, `NotificationCenter`, `ActivityFeed`, `Timeline`.
-- Data/resource workflows: `SearchFilterBar`, `DataTable`, `CrudPage`, `Pagination`, `ResourceList`, `ResourceGrid`, `ResourceDetail`, `UserManagement`, `IntegrationList`, `ApiKeyManager`, `JobRunList`, `LogViewer`, `InspectorPanel`, `FileUploader`, `FileList`.
+- Foundation: `Button`, `IconButton`, `Badge`, `StatusBadge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `KeyboardShortcut`, `CodeBlock`, `CopyButton`, `Card`, `Dialog`, `DropdownMenu`, `Popover`, `Drawer`, `Accordion`, `Input`, `Textarea`, `Table`, `JsonViewer`, `KeyValueList`.
+- Forms/settings: `TextField`, `TextareaField`, `SelectField`, `SwitchField`, `CheckboxField`, `RadioGroupField`, `NumberField`, `Combobox`, `ComboboxField`, `MultiSelectField`, `DateField`, `DateRangeField`, `FormSection`, `SubmitBar`, `SettingsPage`, `ProfileSettings`, `WorkspaceSettings`.
+- Layout/navigation: `AppShell`, `DashboardLayout`, `PageHeader`, `Tabs`, `Breadcrumbs`, `CommandPalette`, `CardGrid`, `MetricCard`, `Stepper`, `WizardLayout`, `ChartCard`, `TrendChart`, `BarChart`.
+- Feedback/state: `EmptyState`, `ErrorState`, `ConfirmDialog`, `Alert`, `Banner`, `ToastViewport`, `NotificationCenter`, `ActivityFeed`, `Timeline`, `PageState`, `LoadingPage`, `NotFoundPage`, `ForbiddenPage`, `MaintenancePage`.
+- Data/resource workflows: `SearchFilterBar`, `DataTable`, `CrudPage`, `Pagination`, `ResourceList`, `ResourceGrid`, `ResourceDetail`, `UserManagement`, `DetailPage`, `PermissionMatrix`, `AuditLog`, `ImportPanel`, `ExportPanel`, `CsvImportWizard`, `DataImportReview`, `DataInspector`, `MetadataPanel`, `IntegrationList`, `ApiKeyManager`, `JobRunList`, `LogViewer`, `InspectorPanel`, `FileUploader`, `FileList`.
 - Content/knowledge/media: `ContentEditorShell`, `DocumentList`, `KnowledgeBaseLayout`, `MediaGallery`, `CalendarList`, `KanbanBoard`.
 - Account/commerce: `SignInForm`, `SignUpForm`, `ForgotPasswordForm`, `ResetPasswordForm`, `BillingSettings`, `PricingTable`, `CheckoutSummary`, `OrderList`.
 - AI-aware optional components: `ChatPanel`, `ConversationList`, `PromptComposer`, `TokenMeter`, `AgentStatusIndicator`.

@@ -23,5 +23,32 @@ describe('componentRecipes', () => {
 		expect(suggestComponents('dashboard settings crud admin page')).toEqual(
 			expect.arrayContaining(['DashboardLayout', 'SettingsPage', 'CrudPage'])
 		);
+		expect(suggestComponents('searchable user selector with tags and date range')).toEqual(
+			expect.arrayContaining(['ComboboxField', 'MultiSelectField', 'DateRangeField'])
+		);
+		expect(suggestComponents('onboarding wizard setup with steps')).toEqual(
+			expect.arrayContaining(['Stepper', 'WizardLayout'])
+		);
+		expect(suggestComponents('analytics dashboard with trend and bar chart')).toEqual(
+			expect.arrayContaining(['ChartCard', 'TrendChart', 'BarChart'])
+		);
+		expect(suggestComponents('admin permissions and audit log detail page')).toEqual(
+			expect.arrayContaining(['PermissionMatrix', 'AuditLog', 'DetailPage'])
+		);
+		expect(suggestComponents('csv import export review errors')).toEqual(
+			expect.arrayContaining(['ImportPanel', 'ExportPanel', 'CsvImportWizard', 'DataImportReview'])
+		);
+		expect(suggestComponents('not found forbidden maintenance loading page state')).toEqual(
+			expect.arrayContaining([
+				'PageState',
+				'LoadingPage',
+				'NotFoundPage',
+				'ForbiddenPage',
+				'MaintenancePage'
+			])
+		);
+		expect(suggestComponents('inspect json metadata key value data')).toEqual(
+			expect.arrayContaining(['JsonViewer', 'KeyValueList', 'DataInspector', 'MetadataPanel'])
+		);
 	});
 });

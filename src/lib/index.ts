@@ -50,6 +50,32 @@ export { default as Table } from './components/Table.svelte';
 export { default as DashboardLayout } from './components/DashboardLayout.svelte';
 export { default as SettingsPage } from './components/SettingsPage.svelte';
 export { default as CrudPage } from './components/CrudPage.svelte';
+export { default as Combobox } from './components/Combobox.svelte';
+export { default as ComboboxField } from './components/ComboboxField.svelte';
+export { default as MultiSelectField } from './components/MultiSelectField.svelte';
+export { default as DateField } from './components/DateField.svelte';
+export { default as DateRangeField } from './components/DateRangeField.svelte';
+export { default as Stepper } from './components/Stepper.svelte';
+export { default as WizardLayout } from './components/WizardLayout.svelte';
+export { default as ChartCard } from './components/ChartCard.svelte';
+export { default as TrendChart } from './components/TrendChart.svelte';
+export { default as BarChart } from './components/BarChart.svelte';
+export { default as AuditLog } from './components/AuditLog.svelte';
+export { default as PermissionMatrix } from './components/PermissionMatrix.svelte';
+export { default as DetailPage } from './components/DetailPage.svelte';
+export { default as ImportPanel } from './components/ImportPanel.svelte';
+export { default as ExportPanel } from './components/ExportPanel.svelte';
+export { default as CsvImportWizard } from './components/CsvImportWizard.svelte';
+export { default as DataImportReview } from './components/DataImportReview.svelte';
+export { default as PageState } from './components/PageState.svelte';
+export { default as LoadingPage } from './components/LoadingPage.svelte';
+export { default as NotFoundPage } from './components/NotFoundPage.svelte';
+export { default as ForbiddenPage } from './components/ForbiddenPage.svelte';
+export { default as MaintenancePage } from './components/MaintenancePage.svelte';
+export { default as JsonViewer } from './components/JsonViewer.svelte';
+export { default as KeyValueList } from './components/KeyValueList.svelte';
+export { default as DataInspector } from './components/DataInspector.svelte';
+export { default as MetadataPanel } from './components/MetadataPanel.svelte';
 export { default as ActivityFeed } from './components/ActivityFeed.svelte';
 export { default as Timeline } from './components/Timeline.svelte';
 export { default as CommandPalette } from './components/CommandPalette.svelte';
@@ -124,5 +150,13 @@ export type {
 	TextInputType,
 	UserManagementRole,
 	UserManagementUser,
+	AuditLogEvent,
+	ChartDatum,
+	ComboboxOption,
+	ImportReviewIssue,
+	KeyValueItem,
+	PermissionMatrixPermission,
+	PermissionMatrixRole,
+	StepperStep,
 	ComponentRecipe
 } from './types.js';

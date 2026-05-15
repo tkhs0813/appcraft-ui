@@ -999,5 +999,298 @@ export const componentMetadata: ComponentMetadata[] = [
 			'Do not rebuild CRUD screens from raw filters, tables, and pagination.',
 			'Use semantic columns, rows, filters, row actions, and callbacks.'
 		]
+	},
+	{
+		name: 'Combobox',
+		category: 'primitive',
+		description:
+			'Searchable selection primitive with keyboard-friendly listbox structure, loading, empty, and disabled states.',
+		useCases: [
+			'searchable selects, user pickers, integration selectors',
+			'AI-built application screens'
+		],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'ComboboxField',
+		category: 'primitive',
+		description: 'Labeled combobox field with description and validation messaging.',
+		useCases: ['forms, searchable settings, role selection', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'MultiSelectField',
+		category: 'primitive',
+		description: 'Semantic multi-select field for tags, permissions, and grouped filters.',
+		useCases: ['tag selectors, filters, permissions', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'DateField',
+		category: 'primitive',
+		description: 'Semantic date input wrapper with label, help text, min/max, and error state.',
+		useCases: ['date input, schedule forms, filters', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'DateRangeField',
+		category: 'primitive',
+		description: 'Paired date range field for reporting, billing, and list filtering.',
+		useCases: ['date range, reports, billing filters', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'Stepper',
+		category: 'pattern',
+		description: 'Progress step indicator with selectable, disabled, active, and complete states.',
+		useCases: ['onboarding, setup, checkout', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'WizardLayout',
+		category: 'pattern',
+		description:
+			'Complete multi-step workflow shell with stepper, body slot, and primary/secondary actions.',
+		useCases: ['setup wizard, import flow, onboarding', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'ChartCard',
+		category: 'pattern',
+		description:
+			'Constrained chart card for compact metric visualization without custom chart code.',
+		useCases: ['analytics dashboard, metric chart', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'TrendChart',
+		category: 'pattern',
+		description: 'Constrained trend chart for time-series-style summaries.',
+		useCases: ['trend chart, reporting, dashboard', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'BarChart',
+		category: 'pattern',
+		description: 'Constrained horizontal bar chart for comparisons and rankings.',
+		useCases: ['bar chart, analytics, ranking', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'AuditLog',
+		category: 'product',
+		description: 'Structured audit log with actor, action, target, timestamp, and severity.',
+		useCases: ['admin audit, change history, compliance', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'PermissionMatrix',
+		category: 'product',
+		description: 'Role and permission matrix for safe authorization editing.',
+		useCases: ['roles, permissions, workspace admin', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'DetailPage',
+		category: 'product',
+		description: 'Resource detail scaffold with header, status, key-value facts, and actions.',
+		useCases: ['record detail, order detail, user detail', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'ImportPanel',
+		category: 'pattern',
+		description: 'Safe import entry panel with supported formats and action state.',
+		useCases: ['csv import, data import', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'ExportPanel',
+		category: 'pattern',
+		description: 'Safe export entry panel with supported formats and action state.',
+		useCases: ['csv export, data export', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'CsvImportWizard',
+		category: 'product',
+		description: 'CSV import wizard scaffold covering upload, mapping, review, and import steps.',
+		useCases: ['csv import wizard, bulk import', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'DataImportReview',
+		category: 'product',
+		description: 'Import issue review list for row-level validation and mapping errors.',
+		useCases: ['import review, csv errors', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'PageState',
+		category: 'pattern',
+		description:
+			'Page-level state surface for loading, empty, error, forbidden, and maintenance screens.',
+		useCases: ['page state, loading page, error page', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'LoadingPage',
+		category: 'pattern',
+		description: 'Ready-made loading page state.',
+		useCases: ['loading page, suspense', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'NotFoundPage',
+		category: 'pattern',
+		description: 'Ready-made not-found page state.',
+		useCases: ['404, missing resource', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'ForbiddenPage',
+		category: 'pattern',
+		description: 'Ready-made access-restricted page state.',
+		useCases: ['403, permissions', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'MaintenancePage',
+		category: 'pattern',
+		description: 'Ready-made maintenance page state.',
+		useCases: ['maintenance, outage', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'JsonViewer',
+		category: 'primitive',
+		description: 'Styled JSON viewer to avoid raw pre blocks in developer and admin tools.',
+		useCases: ['json, developer tools, metadata', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'KeyValueList',
+		category: 'primitive',
+		description: 'Structured key-value list for metadata, facts, and summaries.',
+		useCases: ['metadata, detail facts', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'DataInspector',
+		category: 'product',
+		description: 'Data inspection panel combining summary metadata with a styled payload viewer.',
+		useCases: ['data inspector, developer tools', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
+	},
+	{
+		name: 'MetadataPanel',
+		category: 'pattern',
+		description: 'Metadata panel wrapper for key-value resource facts.',
+		useCases: ['metadata panel, inspector', 'AI-built application screens'],
+		forbiddenPatterns: [
+			'Do not pass custom CSS classes.',
+			'Do not rebuild this pattern from loose divs and buttons.',
+			'Use semantic props, data arrays, built-in states, and callbacks.'
+		]
 	}
 ];

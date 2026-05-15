@@ -53,6 +53,24 @@
 		TextareaField,
 		TextField,
 		UserManagement,
+		ComboboxField,
+		MultiSelectField,
+		DateRangeField,
+		WizardLayout,
+		ChartCard,
+		TrendChart,
+		BarChart,
+		PermissionMatrix,
+		AuditLog,
+		DetailPage,
+		ImportPanel,
+		ExportPanel,
+		CsvImportWizard,
+		DataImportReview,
+		PageState,
+		JsonViewer,
+		KeyValueList,
+		DataInspector,
 		type AppShellNavItem,
 		type DataTableColumn,
 		type DataTableRow,
@@ -86,6 +104,9 @@
 	let compactNotes = $state(
 		'Use Input/Textarea/Table when a larger field or DataTable is too much.'
 	);
+	let selectedOwner = $state('ryo');
+	let selectedTags = $state(['agent-safe', 'admin']);
+	let reportingRange = $state({ start: '2026-05-01', end: '2026-05-15' });
 
 	const filters: SearchFilter[] = [
 		{
@@ -375,8 +396,8 @@
 						title="Overview page"
 						description="Use DashboardLayout before hand-rolling metric grids."
 						metrics={[
-							{ id: 'exports', label: 'Exports', value: '85', delta: '+6', tone: 'success' },
-							{ id: 'recipes', label: 'Recipes', value: '10', delta: 'Agent-ready', tone: 'brand' }
+							{ id: 'exports', label: 'Exports', value: '111', delta: '+26', tone: 'success' },
+							{ id: 'recipes', label: 'Recipes', value: '17', delta: 'Agent-ready', tone: 'brand' }
 						]}
 						panels={[
 							{
@@ -426,6 +447,159 @@
 					rowActions={[{ label: 'Open', onSelect: () => undefined }]}
 				/>
 			</div>
+		</section>
+
+		<section class="advanced-pack-panel" aria-label="Advanced workflow and governance expansion">
+			<Card
+				meta="Advanced pack"
+				title="Search, dates, workflows, charts, governance, import, and inspection"
+				description="These cover the places where AI agents usually hand-roll fragile UI: comboboxes, date ranges, multi-step flows, charts, permissions, audit logs, import review, page states, and JSON inspectors."
+			>
+				<div class="primitive-grid">
+					<ComboboxField
+						label="Owner"
+						description="Searchable selection without custom listbox markup."
+						value={selectedOwner}
+						options={[
+							{ value: 'ryo', label: 'Ryo', description: 'Workspace owner' },
+							{ value: 'ops', label: 'Operations', description: 'Shared admin group' }
+						]}
+						onSelect={(value) => (selectedOwner = value)}
+					/>
+					<MultiSelectField
+						label="Tags"
+						description="Multi-select chips for filters and metadata."
+						values={selectedTags}
+						options={[
+							{ value: 'agent-safe', label: 'Agent-safe' },
+							{ value: 'admin', label: 'Admin' },
+							{ value: 'analytics', label: 'Analytics' }
+						]}
+						onChange={(values) => (selectedTags = values)}
+					/>
+					<DateRangeField
+						label="Reporting range"
+						description="Semantic date range control for filters and reports."
+						start={reportingRange.start}
+						end={reportingRange.end}
+						onChange={(range) => (reportingRange = range)}
+					/>
+				</div>
+				<div class="product-grid">
+					<WizardLayout
+						title="Integration setup"
+						description="Stepper plus body and actions for onboarding/import/connect flows."
+						currentStepId="map"
+						steps={[
+							{ id: 'connect', label: 'Connect' },
+							{ id: 'map', label: 'Map fields' },
+							{ id: 'review', label: 'Review' }
+						]}
+						primaryAction={{ label: 'Continue', onClick: () => undefined }}
+					>
+						<p class="composition-note">
+							Agents pass steps and actions instead of inventing wizard state UI.
+						</p>
+					</WizardLayout>
+					<ChartCard
+						title="Usage"
+						value="12.4k"
+						description="Constrained chart card for dashboards."
+						data={[
+							{ label: 'Mon', value: 32 },
+							{ label: 'Tue', value: 48 },
+							{ label: 'Wed', value: 41 }
+						]}
+					/>
+					<TrendChart
+						title="Trend"
+						summary="No custom SVG required."
+						data={[
+							{ label: '1', value: 20 },
+							{ label: '2', value: 44 },
+							{ label: '3', value: 36 }
+						]}
+					/>
+					<BarChart
+						title="Top workflows"
+						data={[
+							{ label: 'Research', value: 12 },
+							{ label: 'Review', value: 9 },
+							{ label: 'Import', value: 6 }
+						]}
+					/>
+				</div>
+				<div class="product-grid">
+					<PermissionMatrix
+						roles={[
+							{ id: 'owner', label: 'Owner' },
+							{ id: 'member', label: 'Member' },
+							{ id: 'viewer', label: 'Viewer' }
+						]}
+						permissions={[
+							{ id: 'read', label: 'Read' },
+							{ id: 'write', label: 'Write' },
+							{ id: 'admin', label: 'Admin' }
+						]}
+						values={{
+							owner: ['read', 'write', 'admin'],
+							member: ['read', 'write'],
+							viewer: ['read']
+						}}
+					/>
+					<AuditLog
+						events={[
+							{
+								id: 'a1',
+								actor: 'Ryo',
+								action: 'updated',
+								target: 'Permission policy',
+								timestamp: '2m ago',
+								severity: 'info'
+							}
+						]}
+					/>
+					<DetailPage
+						title="Research assistant"
+						description="Resource detail scaffold."
+						status="Ready"
+						items={[
+							{ key: 'owner', label: 'Owner', value: 'Ryo' },
+							{ key: 'updated', label: 'Updated', value: '2m ago' }
+						]}
+					/>
+				</div>
+				<div class="product-grid">
+					<ImportPanel action={{ label: 'Import CSV', onClick: () => undefined }} />
+					<ExportPanel action={{ label: 'Export JSON', onClick: () => undefined }} />
+					<CsvImportWizard
+						currentStepId="review"
+						issues={[{ id: 'i1', row: 8, field: 'email', message: 'Invalid email address' }]}
+					/>
+					<DataImportReview
+						issues={[{ id: 'i1', row: 8, field: 'email', message: 'Invalid email address' }]}
+					/>
+				</div>
+				<div class="product-grid">
+					<PageState
+						title="No matching records"
+						description="Page-level states prevent ad-hoc centered empty/error screens."
+					/>
+					<KeyValueList
+						title="Metadata"
+						items={[
+							{ key: 'version', label: 'Version', value: '0.0.1' },
+							{ key: 'exports', label: 'Exports', value: '111' }
+						]}
+					/>
+					<JsonViewer title="Payload" value={{ selectedOwner, selectedTags, reportingRange }} />
+					<DataInspector
+						title="Inspector"
+						summary={[{ key: 'component', label: 'Component', value: 'DataInspector' }]}
+						value={{ status: 'ready' }}
+					/>
+				</div>
+			</Card>
 		</section>
 
 		<PageHeader

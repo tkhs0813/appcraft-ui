@@ -173,3 +173,55 @@ export type ComponentRecipe = {
 };
 
 export type AgentStatus = 'idle' | 'thinking' | 'running' | 'waiting' | 'failed' | 'completed';
+
+export type ComboboxOption = SelectOption & {
+	description?: string;
+};
+
+export type StepperStep = {
+	id: string;
+	label: string;
+	description?: string;
+	disabled?: boolean;
+};
+
+export type ChartDatum = {
+	label: string;
+	value: number;
+	tone?: StatusBadgeTone;
+};
+
+export type AuditLogEvent = {
+	id: string;
+	actor: string;
+	action: string;
+	target: string;
+	timestamp: string;
+	severity?: 'info' | 'warning' | 'danger';
+};
+
+export type PermissionMatrixRole = {
+	id: string;
+	label: string;
+	description?: string;
+};
+
+export type PermissionMatrixPermission = {
+	id: string;
+	label: string;
+	description?: string;
+};
+
+export type ImportReviewIssue = {
+	id: string;
+	row: number;
+	field: string;
+	message: string;
+	severity?: 'warning' | 'error';
+};
+
+export type KeyValueItem = {
+	key: string;
+	label: string;
+	value: string;
+};

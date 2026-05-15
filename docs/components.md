@@ -28,6 +28,8 @@ Use these when a screen needs small reusable controls.
 - `Input`
 - `Textarea`
 - `Table`
+- `JsonViewer`
+- `KeyValueList`
 
 ## Forms and settings
 
@@ -40,6 +42,11 @@ These should be the default for edit screens, onboarding, preferences, and accou
 - `CheckboxField`
 - `RadioGroupField`
 - `NumberField`
+- `Combobox`
+- `ComboboxField`
+- `MultiSelectField`
+- `DateField`
+- `DateRangeField`
 - `FormSection`
 - `SubmitBar`
 - `SettingsPage`
@@ -58,6 +65,11 @@ These prevent AI agents from hand-rolling inconsistent shells and page structure
 - `CommandPalette`
 - `CardGrid`
 - `MetricCard`
+- `Stepper`
+- `WizardLayout`
+- `ChartCard`
+- `TrendChart`
+- `BarChart`
 
 ## Feedback and state
 
@@ -72,6 +84,11 @@ Every app needs loading, empty, error, confirmation, notification, and activity 
 - `NotificationCenter`
 - `ActivityFeed`
 - `Timeline`
+- `PageState`
+- `LoadingPage`
+- `NotFoundPage`
+- `ForbiddenPage`
+- `MaintenancePage`
 
 ## Data and resource workflows
 
@@ -85,6 +102,15 @@ These are the core product components for internal tools, admin surfaces, CRUD a
 - `ResourceGrid`
 - `ResourceDetail`
 - `UserManagement`
+- `DetailPage`
+- `PermissionMatrix`
+- `AuditLog`
+- `ImportPanel`
+- `ExportPanel`
+- `CsvImportWizard`
+- `DataImportReview`
+- `DataInspector`
+- `MetadataPanel`
 - `IntegrationList`
 - `ApiKeyManager`
 - `JobRunList`

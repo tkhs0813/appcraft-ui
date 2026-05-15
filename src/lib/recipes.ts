@@ -121,6 +121,61 @@ export const componentRecipes: ComponentRecipe[] = [
 		],
 		notes:
 			'Use Atom Pack primitives for compact actions, identity, loading, code, copy, token usage, and agent status instead of raw HTML.'
+	},
+	{
+		useCase: 'advanced input and scheduling flows',
+		keywords: [
+			'searchable',
+			'selector',
+			'autocomplete',
+			'combobox',
+			'tags',
+			'multi select',
+			'date',
+			'date range'
+		],
+		components: ['Combobox', 'ComboboxField', 'MultiSelectField', 'DateField', 'DateRangeField'],
+		notes:
+			'Use advanced semantic fields instead of hand-rolling searchable selects, tag pickers, or date range controls.'
+	},
+	{
+		useCase: 'multi-step workflows and onboarding',
+		keywords: ['wizard', 'stepper', 'onboarding', 'setup', 'multi-step', 'checkout'],
+		components: ['Stepper', 'WizardLayout'],
+		notes:
+			'Use Stepper and WizardLayout for controlled setup, onboarding, checkout, and import workflows.'
+	},
+	{
+		useCase: 'analytics and charts',
+		keywords: ['analytics', 'chart', 'trend', 'bar chart', 'dashboard', 'reporting'],
+		components: ['ChartCard', 'TrendChart', 'BarChart'],
+		notes:
+			'Use constrained chart components so agents pass data instead of inventing custom SVG or chart styling.'
+	},
+	{
+		useCase: 'admin governance and resource detail',
+		keywords: ['permissions', 'permission', 'audit', 'audit log', 'detail page', 'admin'],
+		components: ['PermissionMatrix', 'AuditLog', 'DetailPage'],
+		notes: 'Use governance and detail components for role editing, audit trails, and record pages.'
+	},
+	{
+		useCase: 'import export workflows',
+		keywords: ['import', 'export', 'csv', 'review', 'bulk upload', 'errors'],
+		components: ['ImportPanel', 'ExportPanel', 'CsvImportWizard', 'DataImportReview'],
+		notes:
+			'Use import/export workflow components for bulk data movement and row-level review states.'
+	},
+	{
+		useCase: 'page-level states',
+		keywords: ['not found', 'forbidden', 'maintenance', 'loading page', 'page state', 'empty page'],
+		components: ['PageState', 'LoadingPage', 'NotFoundPage', 'ForbiddenPage', 'MaintenancePage'],
+		notes: 'Use page-level state components instead of ad-hoc centered messages.'
+	},
+	{
+		useCase: 'data inspection and metadata',
+		keywords: ['inspect', 'inspector', 'json', 'metadata', 'key value', 'data'],
+		components: ['JsonViewer', 'KeyValueList', 'DataInspector', 'MetadataPanel'],
+		notes: 'Use data inspection components instead of raw pre tags and loose metadata rows.'
 	}
 ];
 

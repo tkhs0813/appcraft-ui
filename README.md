@@ -111,6 +111,8 @@ The Atom Pack adds `IconButton`, `Badge`, `Avatar`, `Spinner`, `ProgressBar`, `S
 
 The basic and product page expansion adds low-level `Input`, `Textarea`, and `Table` primitives plus larger `DashboardLayout`, `SettingsPage`, and `CrudPage` components so agents can choose either safe small building blocks or complete application pages.
 
+The advanced workflow expansion adds searchable selection, date ranges, multi-step workflow shells, constrained charts, governance/admin patterns, import/export review flows, page-level states, and data inspection: `Combobox`, `ComboboxField`, `MultiSelectField`, `DateField`, `DateRangeField`, `Stepper`, `WizardLayout`, `ChartCard`, `TrendChart`, `BarChart`, `PermissionMatrix`, `AuditLog`, `DetailPage`, `ImportPanel`, `ExportPanel`, `CsvImportWizard`, `DataImportReview`, `PageState`, `LoadingPage`, `NotFoundPage`, `ForbiddenPage`, `MaintenancePage`, `JsonViewer`, `KeyValueList`, `DataInspector`, and `MetadataPanel`.
+
 ```bash
 appcraft-ui describe ResourceList
 appcraft-ui rules
