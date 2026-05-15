@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../lib/styles.css';
+	import { resolve } from '$app/paths';
 	import {
 		Accordion,
 		Alert,
@@ -82,10 +83,10 @@
 	} from '$lib/index.js';
 
 	const navItems: AppShellNavItem[] = [
-		{ label: 'Overview', href: '/', icon: '⌘', current: true },
-		{ label: 'Members', href: '/members', icon: '👥' },
-		{ label: 'Billing', href: '/billing', icon: '◇' },
-		{ label: 'Settings', href: '/settings', icon: '⚙' }
+		{ label: 'Demo', href: resolve('/'), icon: '⌘', current: true },
+		{ label: 'Components', href: resolve('/components'), icon: '▦' },
+		{ label: 'Recipes', href: '#recipes', icon: '✦' },
+		{ label: 'Metadata', href: '#metadata', icon: '{}' }
 	];
 
 	let showDialog = $state(false);
@@ -371,7 +372,11 @@
 			</Card>
 		</section>
 
-		<section class="primitive-product-panel" aria-label="Low-level and product page expansion">
+		<section
+			id="recipes"
+			class="primitive-product-panel"
+			aria-label="Low-level and product page expansion"
+		>
 			<Card
 				meta="Both layers"
 				title="Low-level primitives + complete product pages"
@@ -580,7 +585,7 @@
 						issues={[{ id: 'i1', row: 8, field: 'email', message: 'Invalid email address' }]}
 					/>
 				</div>
-				<div class="product-grid">
+				<div id="metadata" class="product-grid">
 					<PageState
 						title="No matching records"
 						description="Page-level states prevent ad-hoc centered empty/error screens."
