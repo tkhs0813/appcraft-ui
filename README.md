@@ -2,25 +2,47 @@
 
 Production-grade Svelte components for AI-built applications.
 
-Agent UI is a constrained component SDK designed for AI coding agents. It ships one polished theme, semantic component APIs, built-in application states, and machine-readable metadata so agents can build consistent product interfaces without breaking visual quality.
+Agent UI is **not** UI for AI agents. It is a package-based component SDK for building ordinary, polished application screens in a way that AI coding agents can use reliably. Humans and agents pass data, intent, and callbacks; the library owns layout, spacing, visual quality, interaction details, and common application states.
+
+## What this is
+
+A constrained UI library for product applications:
+
+- Admin consoles and internal tools
+- Developer tools and dashboards
+- Content, knowledge, and media apps
+- Settings, account, billing, and commerce flows
+- AI-powered apps when needed, without making AI chat the center of the library
 
 ## Principles
 
 - One carefully designed theme
 - No arbitrary styling by default
 - Semantic props only
-- Built-in loading, empty, error, and destructive states
-- Product-ready application components
+- Built-in loading, empty, error, saved, and destructive states
+- Product-ready application components, not only atoms
 - Machine-readable component metadata
-- Rules and docs for AI coding agents
+- Agent-readable rules and recipes so AI coding agents choose existing components instead of inventing UI
 
-## Roadmap
+See `docs/principles.md` for the full design stance and `docs/components.md` for the component map.
 
-The component roadmap is intentionally broader than SaaS: admin tools, developer tools, AI workspaces, content apps, commerce flows, knowledge bases, internal tools, and personal productivity apps are all in scope. See `docs/plans/2026-05-14-component-roadmap.md`.
+## Not shadcn, not headless, not "agent chat UI"
 
-## Not shadcn
+Agent UI is not a copy-paste component kit, not a headless primitive library, and not a chat/agent-operation interface kit. The library owns the UI. Your app passes data, intent, and callbacks.
 
-Agent UI is not a copy-paste component kit. The library owns the UI. Your app passes data, intent, and callbacks.
+```svelte
+<UserManagement
+	{users}
+	loading={membersLoading}
+	error={membersError}
+	currentUserId={currentUser.id}
+	onInvite={inviteMember}
+	onChangeRole={changeRole}
+	onRemove={removeUser}
+/>
+```
+
+The goal is that an AI coding agent can safely assemble a good application screen without hand-writing fragile markup, class strings, table states, dialog behavior, or form layouts.
 
 ## Install
 
@@ -83,14 +105,14 @@ Use components from the package root:
 
 ## Component coverage
 
-The Atom Pack adds `IconButton`, `Badge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `CheckboxField`, `RadioGroupField`, `NumberField`, `CodeBlock`, `CopyButton`, `KeyboardShortcut`, `TokenMeter`, and `AgentStatusIndicator` for small AI-safe UI composition.
+The current library includes primitives, form controls, page/application patterns, feedback/navigation patterns, resource/developer-tool components, content/media/knowledge layouts, account/auth/billing/commerce flows, and a small set of AI-aware components for apps that need them.
 
-Agent UI now includes the full roadmap surface: feedback/navigation patterns, resource and developer-tool product components, AI workspace components, content/media/knowledge layouts, account/auth/billing/commerce flows, plus agent-facing recipes and CLI helpers.
+The Atom Pack adds `IconButton`, `Badge`, `Avatar`, `Spinner`, `ProgressBar`, `Skeleton`, `Tooltip`, `Separator`, `CheckboxField`, `RadioGroupField`, `NumberField`, `CodeBlock`, `CopyButton`, `KeyboardShortcut`, `TokenMeter`, and `AgentStatusIndicator` for small safe UI composition.
 
 ```bash
 agent-ui describe ResourceList
 agent-ui rules
-agent-ui suggest --use-case "chat workspace with prompt composer"
+agent-ui suggest --use-case "settings page with billing and team members"
 ```
 
 ## Development

@@ -67,8 +67,11 @@
 		"svelte",
 		"ui",
 		"components",
-		"ai-agents",
-		"ai-apps"
+		"ai-apps",
+		"component-sdk",
+		"ai-built-apps",
+		"application-ui",
+		"ai-agents"
 	],
 	"bin": {
 		"agent-ui": "./dist/cli.js"
