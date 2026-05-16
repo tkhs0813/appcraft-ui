@@ -72,6 +72,10 @@ When adding, removing, or renaming a public component, update all applicable fil
 - `packages/ui/src/lib/recipes.test.ts`
 - `apps/catalog/src/routes/+page.svelte`
 - `apps/catalog/src/routes/components/+page.svelte`
+- `apps/catalog/src/routes/components/[slug]/+page.svelte`
+- `apps/catalog/src/lib/component-docs.ts` for authored props descriptions, usage snippets, and preview examples
+- `apps/catalog/src/lib/ComponentShowcase.svelte` for rendered catalog previews
+- `apps/catalog/src/lib/generated-component-props.ts` via `pnpm docs:props` after public prop changes
 - `README.md`
 - `docs/components.md`
 - `docs/agent-usage.md`

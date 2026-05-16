@@ -142,5 +142,13 @@ Focused commands:
 ```bash
 pnpm --filter appcraft-ui build
 pnpm --filter @appcraft-ui/catalog dev
+pnpm docs:props
 BASE_PATH=/appcraft-ui pnpm --filter @appcraft-ui/catalog build
 ```
+
+Catalog component docs are source-assisted:
+
+- `pnpm docs:props` regenerates `apps/catalog/src/lib/generated-component-props.ts` from each component's typed `Props` interface.
+- Add human descriptions, usage snippets, and preview coverage in `apps/catalog/src/lib/component-docs.ts`.
+- Add rendered examples in `apps/catalog/src/lib/ComponentShowcase.svelte`.
+- Detail pages are generated at `/components/<component-slug>/`, for example `/components/button/`.

@@ -7,6 +7,7 @@
 		"build": "pnpm --filter appcraft-ui build && pnpm --filter @appcraft-ui/catalog build",
 		"build:ui": "pnpm --filter appcraft-ui build",
 		"build:catalog": "pnpm --filter @appcraft-ui/catalog build",
+		"docs:props": "node scripts/generate-catalog-props.mjs",
 		"preview": "pnpm --filter @appcraft-ui/catalog preview",
 		"check": "pnpm -r --if-present check",
 		"lint": "prettier --check . && eslint .",

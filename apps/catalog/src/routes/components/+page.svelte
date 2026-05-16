@@ -2,6 +2,7 @@
 	import 'appcraft-ui/styles.css';
 	import { resolve } from '$app/paths';
 	import { componentMetadata, componentRecipes } from 'appcraft-ui';
+	import { slugifyComponentName } from '$lib/component-docs.js';
 
 	let query = $state('');
 	let category = $state('all');
@@ -146,29 +147,35 @@
 			{:else}
 				<div class="component-grid">
 					{#each filteredComponents as component (component.name)}
-						<article class="component-card">
-							<div class="component-card-header">
-								<div>
-									<p>{component.category}</p>
-									<h3>{component.name}</h3>
+						<a
+							class="component-card"
+							href={resolve(`/components/${slugifyComponentName(component.name)}`)}
+						>
+							<article>
+								<div class="component-card-header">
+									<div>
+										<p>{component.category}</p>
+										<h3>{component.name}</h3>
+									</div>
+									<span>{component.useCases.length} use cases</span>
 								</div>
-								<span>{component.useCases.length} use cases</span>
-							</div>
-							<p>{component.description}</p>
-							<div class="tag-group" aria-label="Use cases">
-								{#each component.useCases as useCase (useCase)}
-									<span>{useCase}</span>
-								{/each}
-							</div>
-							<div class="guardrails">
-								<strong>Guardrails</strong>
-								<ul>
-									{#each component.forbiddenPatterns.slice(0, 3) as pattern (pattern)}
-										<li>{pattern}</li>
+								<p>{component.description}</p>
+								<div class="tag-group" aria-label="Use cases">
+									{#each component.useCases as useCase (useCase)}
+										<span>{useCase}</span>
 									{/each}
-								</ul>
-							</div>
-						</article>
+								</div>
+								<div class="guardrails">
+									<strong>Guardrails</strong>
+									<ul>
+										{#each component.forbiddenPatterns.slice(0, 3) as pattern (pattern)}
+											<li>{pattern}</li>
+										{/each}
+									</ul>
+								</div>
+								<span class="details-link">View props and examples →</span>
+							</article>
+						</a>
 					{/each}
 				</div>
 			{/if}
@@ -451,6 +458,26 @@
 		padding: 1rem;
 	}
 
+	.component-card {
+		color: inherit;
+		text-decoration: none;
+		transition:
+			border-color 120ms ease,
+			box-shadow 120ms ease,
+			transform 120ms ease;
+	}
+
+	.component-card:hover {
+		border-color: color-mix(in srgb, var(--aui-brand) 40%, var(--aui-border));
+		box-shadow: var(--aui-shadow-lg);
+		transform: translateY(-1px);
+	}
+
+	.component-card article {
+		display: grid;
+		height: 100%;
+	}
+
 	.component-card-header {
 		display: flex;
 		gap: 1rem;
@@ -494,6 +521,14 @@
 		gap: 0.3rem;
 		margin: 0;
 		padding-left: 1.1rem;
+	}
+
+	.details-link {
+		align-self: end;
+		color: var(--aui-brand);
+		font-size: 0.82rem;
+		font-weight: 800;
+		margin-top: 1rem;
 	}
 
 	@media (max-width: 960px) {
