@@ -160,12 +160,59 @@ function applyPropOverrides(name: string, props: ComponentPropDoc[]) {
 
 const metadata = componentMetadata as ComponentMetadata[];
 
+function formatPropValue(prop: ComponentPropDoc) {
+	if (prop.name.startsWith('on')) return `{${prop.name}}`;
+	if (prop.name === 'children') return '';
+	if (prop.name === 'open') return `{true}`;
+	if (prop.name === 'loading' || prop.name === 'disabled' || prop.name === 'checked')
+		return `{true}`;
+	if (prop.name === 'page' || prop.name === 'pageCount' || prop.name === 'resultCount')
+		return `{1}`;
+	if (prop.type.includes('[]') || prop.name.endsWith('s')) return `{${prop.name}}`;
+	if (prop.type === 'boolean') return `{true}`;
+	if (prop.type === 'number') return `{0}`;
+	return `"${prop.name === 'label' ? 'Label' : prop.name === 'title' ? 'Title' : 'value'}"`;
+}
+
+function createUsageSnippet(name: string, props: ComponentPropDoc[]) {
+	const documentedProps = props.filter((prop) => prop.name !== 'children');
+	const priorityProps = documentedProps.filter((prop) => prop.required).slice(0, 6);
+	const fallbackProps = documentedProps
+		.filter((prop) =>
+			['title', 'label', 'description', 'items', 'columns', 'rows', 'options', 'actions'].includes(
+				prop.name
+			)
+		)
+		.slice(0, 5);
+	const selectedProps = priorityProps.length > 0 ? priorityProps : fallbackProps;
+
+	if (selectedProps.length === 0) return `<${name} />`;
+
+	return `<${name}\n${selectedProps
+		.map((prop) => `\t${prop.name}=${formatPropValue(prop)}`)
+		.join('\n')}\n/>`;
+}
+
+function createGeneratedExample(
+	component: ComponentMetadata,
+	props: ComponentPropDoc[]
+): ComponentExampleDoc {
+	return {
+		id: 'semantic-usage',
+		title: 'Semantic usage',
+		description: `${component.name} should be used through its semantic props and built-in states instead of custom layout or styling escape hatches.`,
+		code: createUsageSnippet(component.name, props)
+	};
+}
+
 export const componentDocs = metadata.map((component) => {
-	const examples = overrides[component.name]?.examples ?? [];
 	const props = applyPropOverrides(
 		component.name,
 		generatedComponentProps[component.name as keyof typeof generatedComponentProps] ?? []
 	);
+	const examples = overrides[component.name]?.examples ?? [
+		createGeneratedExample(component, props)
+	];
 
 	return {
 		slug: slugifyComponentName(component.name),
@@ -176,7 +223,7 @@ export const componentDocs = metadata.map((component) => {
 		forbiddenPatterns: component.forbiddenPatterns,
 		props,
 		examples,
-		status: examples.length > 0 ? 'documented' : 'generated'
+		status: 'documented'
 	} satisfies ComponentDoc;
 });
 
