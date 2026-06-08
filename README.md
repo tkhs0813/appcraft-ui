@@ -1,6 +1,6 @@
 # Appcraft UI
 
-Production-grade Svelte components for AI-built applications.
+Production-grade Svelte components for AI-built applications
 
 Appcraft UI is **not** a UI kit for AI agents. It is a package-based component SDK for building ordinary, polished application screens in a way that AI coding agents can use reliably. Humans and agents pass data, intent, and callbacks; the library owns layout, spacing, visual quality, interaction details, and common application states.
 
