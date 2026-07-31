@@ -15,7 +15,9 @@
 	"files": [
 		"dist",
 		"!dist/**/*.test.*",
-		"!dist/**/*.spec.*"
+		"!dist/**/*.spec.*",
+		"!dist/**/*Story.svelte",
+		"!dist/**/*Story.svelte.d.ts"
 	],
 	"sideEffects": [
 		"**/*.css"
